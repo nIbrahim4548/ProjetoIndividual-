@@ -1,0 +1,216 @@
+/* ===== HEADER / MENU SUPERIOR ===== */
+.topbar {
+    width: 100%;
+    background: #cc0000;     /* vermelho */
+    padding: 15px 40px;      /* altura da faixa + espaçamento lateral */
+    box-sizing: border-box;
+}
+
+.menu-header {
+    max-width: 1200px;
+    margin: auto;
+}
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+
+
+.menu-list {
+    list-style: none;
+    display: flex;
+   justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu-list > li > a {
+    color: #fff;              /* texto branco */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+
+main {
+    margin-top: 90px; /* pra não ficar escondido atrás do header */
+}
+main {
+    padding: 40px;
+    background: #f8f8f8;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+.selects-animated {
+    position: relative; /* referência para o absolute */
+}
+
+.links-header {
+    position: absolute;
+    top: 100%;    /* aparece logo abaixo do botão */
+    left: 0;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+.links-header li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.links-header li a:hover {
+    background: #f1f1f1;
+    
+}
+
+
+
+
+.selects-animated1 {
+    position: relative; /* referência para o absolute */
+}
+
+.links-usuario {
+    position: absolute;
+    top: 100%;    /* aparece logo abaixo do botão */
+    left: 0;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+.links-usuario li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.links-usuario li a:hover {
+    background: #f1f1f1;
+    
+}
+
+
+.selects-animated2 {
+    position: relative; /* referência para o absolute */
+}
+
+.links-usuario1 {
+    position: absolute;
+    top: 100%;    /* aparece logo abaixo do botão */
+    left: 0;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+.links-usuario1 li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.links-usuario1 li a:hover {
+    background: #f1f1f1;
+    
+}
+
+.selects-animated3 {
+    position: relative; /* referência para o absolute */
+}
+
+.links-usuario2 {
+    position: absolute;
+    top: 100%;    /* aparece logo abaixo do botão */
+    left: 0;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+.links-usuario2 li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.links-usuario2 li a:hover {
+    background: #f1f1f1;
+    
+}
+
+
+.selects-animated4 {
+    position: relative; /* referência para o absolute */
+}
+
+.links-usuario3 {
+    position: absolute;
+    top: 100%;    /* aparece logo abaixo do botão */
+    left: 0;
+    z-index: 999;
+
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+.links-usuario3 li a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.links-usuario3 li a:hover {
+    background: #f1f1f1;
+    
+}

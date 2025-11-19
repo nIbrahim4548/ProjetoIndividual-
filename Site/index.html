@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+      <header class="topbar">
+        <nav class="menu-header">
+            <ul class="menu-list">
+                    <li class="selects-animated">
+                    <a href="#" class="selects-link">Inicio</a>
+                    <ul class="links-usuario1">
+                        <li><a href="../estd/index.html">Home</a></li>
+                        <li><a href="cadastro">Cadastro</a></li>
+                        <li><a href="login">Login</a></li>
+                    </ul>
+                </li>
+                <li class="selects-animated2">
+                    <a href="#" class="selects-links">Mecânica</a>
+                    <ul class="links-header">
+                        <li><a href="">Motores</a></li>
+                        <li><a href="">Suspensão</a></li>
+                        <li><a href="">Pneu</a></li>
+                        <li><a href="">Câmbio</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated3">
+                    <a href="#" class="selects-link">Sistemas de sobrealimentação</a>
+                    <ul class="links-usuario2">
+                        <li><a href="home">Turbocompressor</a></li>
+                        <li><a href="cadastro">Supercompressor</a></li>
+                    </ul>
+                </li>
+
+
+                
+                    <li class="selects-animated4">
+                    <a href="#" class="selects-link">        Simulação       </a>
+                    <ul class="links-usuario3">
+                        <li><a href="home">Motores</a></li>
+                        <li><a href="cadastro">Descubra seu carro!</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <section class="hero">
+        <h1>Bem-vindo ao Portal de Mecânica</h1>
+        <p>Escolha um simulador ou consulte informações técnicas.</p>
+    </section>
+
+    <section class="motores">
+        <h2>Motores</h2>
+        <p>Explicações, fichas técnicas, simuladores, etc...</p>
+    </section>
+
+    <section class="simulador">
+        <h2>Simulador de Desempenho</h2>
+        <p>Teste diferentes combinações de turbo, bicos, pressão e mais.</p>
+    </section>
+</main>
+
+    
+</body>
+</html>
+ <script>
+document.querySelectorAll(".selects-links").forEach(trigger => {
+    trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        let panel = trigger.nextElementSibling;
+
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+});
+
+document.querySelectorAll(".selects-link").forEach(trigger => {
+    trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        let panel = trigger.nextElementSibling;
+
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+});
+</script>
