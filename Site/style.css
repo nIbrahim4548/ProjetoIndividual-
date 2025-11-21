@@ -1,216 +1,368 @@
 /* ===== HEADER / MENU SUPERIOR ===== */
+body * {
+    font-family: "Poppins", sans-serif !important;
+}
+
 .topbar {
-    width: 100%;
-    background: #cc0000;     /* vermelho */
-    padding: 15px 40px;      /* altura da faixa + espaçamento lateral */
-    box-sizing: border-box;
+width: 100%;
+background: #cc0000; /* vermelho */
+padding: 15px 40px; /* altura da faixa + espaçamento lateral */
+box-sizing: border-box;
 }
 
 .menu-header {
-    max-width: 1200px;
-    margin: auto;
+max-width: 1200px;
+margin: auto;
 }
 .topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 9999;
 }
 
 
 
 .menu-list {
-    list-style: none;
-    display: flex;
-   justify-content: space-evenly;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+list-style: none;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+padding: 0;
+margin: 0;
+width: 100%;
 }
 
 .menu-list > li > a {
-    color: #fff;              /* texto branco */
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 8px 12px;
-    display: block;
+color: #ffffff; /* texto branco */
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+padding: 8px 12px;
+display: block;
 }
 
 main {
-    margin-top: 90px; /* pra não ficar escondido atrás do header */
+margin-top: 90px; /* pra não ficar escondido atrás do header */
 }
 main {
-    padding: 40px;
-    background: #f8f8f8;
+padding: 40px;
+background: #3b3535f5;
 }
 
 section {
-    padding: 60px 0;
-    border-bottom: 1px solid #ddd;
+padding: 60px 0;
+border-bottom: 1px solid #292626;
 }
 
 h1, h2 {
-    margin-bottom: 20px;
+margin-bottom: 20px;
 }
 .selects-animated {
-    position: relative; /* referência para o absolute */
+position: relative; /* referência para o absolute */
 }
 
-.links-header {
-    position: absolute;
-    top: 100%;    /* aparece logo abaixo do botão */
+.video-background {
+    position: fixed;
+    top: 0;
     left: 0;
-    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;      /* Preenche toda a tela sem bordas pretas */
+    opacity: 0.15;          /* Controle da transparência (0.0 a 1.0) */
+    z-index: -1;            /* Fica atrás de tudo */
+    pointer-events: none;   /* Não interfere com os cliques */
+}
 
-    max-height: 0;
+/* Garante que o conteúdo apareça por cima */
+body, main, header {
+    position: relative;
+    z-index: 1;
+}
+/* CAMADA ESCURA EM TODO O SITE */
+.overlay-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.171); /* 0.65 = intensidade da escuridão */
+    z-index: 0; /* fica ENTRE o vídeo e o conteúdo */
+    pointer-events: none;
+}
+
+/* GARANTE QUE O CONTEÚDO FICA POR CIMA */
+body, main, header, * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.simulador {
+    display: flex;
+    flex-direction: column;
+    font-size: 80px;
+    color: #ffffff;
+
     overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
     padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+    justify-content: center;
+    align-items: center;
+    
+}
+.simulador1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 60px;
+    color: #ffffff;
+
+    overflow: hidden;
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+}
+.links-header {
+position: absolute;
+top: 100%; /* aparece logo abaixo do botão */
+left: 0;
+z-index: 999;
+
+max-height: 0;
+overflow: hidden;
+background: #ffffff;
+transition: max-height 0.3s ease;
+padding-left: 0;
+list-style: none;
+margin: 0;
+box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
 }
 .links-header li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+display: block;
+padding: 10px;
+color: #000000;
+text-decoration: none;
 }
 
 .links-header li a:hover {
-    background: #f1f1f1;
-    
+background: #f1f1f1;
 }
 
 
 
 
 .selects-animated1 {
-    position: relative; /* referência para o absolute */
+position: relative; /* referência para o absolute */
 }
 
 .links-usuario {
-    position: absolute;
-    top: 100%;    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
+position: absolute;
+top: 100%; /* aparece logo abaixo do botão */
+left: 0;
+z-index: 999;
 
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+max-height: 0;
+overflow: hidden;
+background: #ffffff;
+transition: max-height 0.3s ease;
+padding-left: 0;
+list-style: none;
+margin: 0;
+box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
 }
 .links-usuario li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+display: block;
+padding: 10px;
+color: #ffffff;
+text-decoration: none;
 }
 
 .links-usuario li a:hover {
-    background: #f1f1f1;
-    
+background: #f1f1f1;
 }
 
 
 .selects-animated2 {
-    position: relative; /* referência para o absolute */
+position: relative; /* referência para o absolute */
 }
 
 .links-usuario1 {
-    position: absolute;
-    top: 100%;    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
+position: absolute;
+top: 100%; /* aparece logo abaixo do botão */
+left: 0;
+z-index: 999;
 
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+max-height: 0;
+overflow: hidden;
+background: #fff;
+transition: max-height 0.3s ease;
+padding-left: 0;
+list-style: none;
+margin: 0;
+box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
 }
 .links-usuario1 li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+display: block;
+padding: 10px;
+color: #333;
+text-decoration: none;
 }
 
 .links-usuario1 li a:hover {
-    background: #f1f1f1;
-    
+background: #f1f1f1;
 }
 
 .selects-animated3 {
-    position: relative; /* referência para o absolute */
+position: relative; /* referência para o absolute */
 }
 
 .links-usuario2 {
-    position: absolute;
-    top: 100%;    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
+position: absolute;
+top: 100%; /* aparece logo abaixo do botão */
+left: 0;
+z-index: 999;
 
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+max-height: 0;
+overflow: hidden;
+background: #fff;
+transition: max-height 0.3s ease;
+padding-left: 0;
+list-style: none;
+margin: 0;
+box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
 }
 .links-usuario2 li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+display: block;
+padding: 10px;
+color: #333;
+text-decoration: none;
 }
 
 .links-usuario2 li a:hover {
-    background: #f1f1f1;
-    
+background: #f1f1f1;
 }
 
 
 .selects-animated4 {
-    position: relative; /* referência para o absolute */
+position: relative; /* referência para o absolute */
 }
 
 .links-usuario3 {
-    position: absolute;
-    top: 100%;    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
+position: absolute;
+top: 100%; /* aparece logo abaixo do botão */
+left: 0;
+z-index: 999;
 
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+max-height: 0;
+overflow: hidden;
+background: #fff;
+transition: max-height 0.3s ease;
+padding-left: 0;
+list-style: none;
+margin: 0;
+box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
 }
 .links-usuario3 li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+display: block;
+padding: 10px;
+color: #333;
+text-decoration: none;
 }
 
 .links-usuario3 li a:hover {
-    background: #f1f1f1;
-    
+background: #f1f1f1;
+}
+
+
+
+/* ======== ESTILO XADREZ ======== */
+
+.grid-xadrez {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.xadrez {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    gap: 40px;
+}
+
+/* Alternância automática */
+.xadrez.invertido {
+    flex-direction: row-reverse;
+}
+
+/* Áreas de imagem */
+.xadrez-img {
+    width: 50%;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+}
+
+/* Áreas de texto */
+.xadrez-texto {
+    width: 50%;
+    color: white;
+}
+.xadrez-texto h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.xadrez-texto p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* CAIXAS COLORIDAS */
+.bloco-verde .xadrez-img {
+    background: #00000000; /* verde */
+    opacity: 0.9;
+}
+.bloco-vermelho .xadrez-img {
+    background: #cc000000; /* vermelho */
+    opacity: 0.9;
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 800px) {
+    .xadrez,
+    .xadrez.invertido {
+        flex-direction: column;
+    }
+
+    .xadrez-img, .xadrez-texto {
+        width: 100%;
+    }
+}
+
+.pai{
+display: flex;
+justify-content: space-around;
+}
+
+.filho1{
+
+background-color: #00cc6d;
+width: 500px;
+height: 500px;
+}
+.filho2{
+background-color: #cc0000;
+width: 500px;
+height: 500px;
 }
