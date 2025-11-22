@@ -255,3 +255,49 @@ section .textos {
     /* referência para o absolute */
 }
 
+p {
+    line-height: 24px;
+}
+
+main {
+    padding: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.introducao {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.encapsulado {
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    position: relative;
+    border-radius: 12px;
+
+    video {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+
+.video-sobre {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}
