@@ -11,6 +11,8 @@
 html,
 body {
     min-height: 100dvh;
+    background-color: #3b3535f5;
+    color: white;
 }
 
 img {
@@ -282,7 +284,7 @@ main {
 .encapsulado {
     width: 100%;
     overflow: hidden;
-    height: 400px;
+    height: 300px;
     position: relative;
     border-radius: 12px;
 
@@ -300,4 +302,12 @@ main {
     gap: 24px;
     display: flex;
     flex-direction: column;
+}
+
+.img-cab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70%;
 }

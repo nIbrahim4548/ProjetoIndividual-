@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3</title>
+</head>
+<body>
+
+<h1>Exercício 3</h1>
+
+<button onclick="jogarD20()">Jogar dado</button>
+
+<div id="quadrado"
+     style="width:100px;height:100px;background:black;margin-top:10px;
+     display:flex;align-items:center;justify-content:center;">
+    <font color="white" size="6">-</font>
+</div>
+
+</body>
+
+<script>
+    function jogarD20() {
+        var numero;
+
+        numero = Math.floor(Math.random() * 20) + 1;
+
+        quadrado.innerHTML =
+            '<font color="white" size="6">' + numero + '</font>';
+    }
+</script>
+
+</html>

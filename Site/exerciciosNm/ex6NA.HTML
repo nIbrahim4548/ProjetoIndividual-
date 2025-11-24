@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1>Exercício 6</h1>
+<button onclick="sortearMomento()">Sortear momento do dia</button>
+<div id="areaMomento"></div>
+
+</body>
+
+<script>
+    function sortearMomento() {
+        var horaSorteada;
+        var textoMomento;
+
+        horaSorteada = Math.floor(Math.random() * 24);
+
+        if (horaSorteada >= 0 && horaSorteada <= 11) {
+            textoMomento = "Bom dia, flor do dia, são " + horaSorteada + "h!";
+        } else if (horaSorteada >= 12 && horaSorteada <= 17) {
+            textoMomento = "Boa tarde, já vai tarde! São " + horaSorteada + "h!";
+        } else {
+            textoMomento = "Boa noite, durma bem! São " + horaSorteada + "h!";
+        }
+
+        areaMomento.innerHTML = textoMomento;
+    }
+</script>
+
+</html>
+
+    
+</body>
+</html>

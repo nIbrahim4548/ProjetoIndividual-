@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Exercício 5</h1>
+<button onclick="jogarJokenpo()">Jogar</button>
+
+<div>
+    <img id="imagemJogador1" height="200">
+    <img id="imagemJogador2" height="200">
+</div>
+
+<div id="areaResultado"></div>
+<div id="areaPlacar"></div>
+
+</body>
+
+<script>
+    var vitoriasJogador1 = 0;
+    var vitoriasJogador2 = 0;
+
+    function jogarJokenpo() {
+        var jogada1;
+        var jogada2;
+        var textoResultado;
+
+        jogada1 = Math.floor(Math.random() * 3);
+        jogada2 = Math.floor(Math.random() * 3);
+
+        if (jogada1 == 0) {
+            imagemJogador1 = `<img src="https://img.freepik.com/psd-gratuitas/rocha-cinzenta-isolada-em-fundo-transparente_632498-25568.jpg?semt=ais_hybrid&w=740&q=80 alt="pedra"`;
+        } else if (jogada1 == 1) {
+            imagemJogador1 = `<img src="https://beagaembalagem.com.br/wp-content/uploads/2022/01/folha-a4.jpg" alt="papel"`;
+        } else {
+            imagemJogador1 = `<img src="https://images.tcdn.com.br/img/img_prod/406359/tesoura_escolar_multiuso_13cm_lamina_de_aco_inox_e_corpo_plastico_masterprint_mp502_3741_1_bbda60f9f34b62fcca20c6dbea7787e7_20220707124956.jpg" alt="tesoura"`;
+        }
+
+        if (jogada2 == 0) {
+            imagemJogador2 = `<img src="https://img.freepik.com/psd-gratuitas/rocha-cinzenta-isolada-em-fundo-transparente_632498-25568.jpg?semt=ais_hybrid&w=740&q=80 alt="pedra"`;
+        } else if (jogada2 == 1) {
+            imagemJogador2 = `<img src="https://beagaembalagem.com.br/wp-content/uploads/2022/01/folha-a4.jpg" alt="papel"`;
+        } else {
+            imagemJogador2 = `<img src="https://images.tcdn.com.br/img/img_prod/406359/tesoura_escolar_multiuso_13cm_lamina_de_aco_inox_e_corpo_plastico_masterprint_mp502_3741_1_bbda60f9f34b62fcca20c6dbea7787e7_20220707124956.jpg" alt="tesoura"`;
+        }
+
+        if (jogada1 == jogada2) {
+            textoResultado = "Empate!";
+        } else if (
+            (jogada1 == 0 && jogada2 == 2) ||
+            (jogada1 == 1 && jogada2 == 0) ||
+            (jogada1 == 2 && jogada2 == 1)
+        ) {
+            textoResultado = "O jogador 1 venceu!";
+            vitoriasJogador1 = vitoriasJogador1 + 1;
+        } else {
+            textoResultado = "O jogador 2 venceu!";
+            vitoriasJogador2 = vitoriasJogador2 + 1;
+        }
+
+        areaResultado.innerHTML = textoResultado;
+        areaPlacar.innerHTML =
+            "Jogador 1: " + vitoriasJogador1 + " vitória(s)<br>" +
+            "Jogador 2: " + vitoriasJogador2 + " vitória(s)";
+    }
+</script>
+
+</html>
+
+    
+</body>
+</html>

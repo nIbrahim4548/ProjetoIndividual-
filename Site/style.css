@@ -35,13 +35,14 @@
 
     p {
         font-size: 2rem;
+        line-height: 1.15;
         margin-bottom: 1.5rem;
     }
 }
 
 
 main {
-    padding: 40px;
+    padding: 40px;  
     background: #3b3535f5;
 }
 
