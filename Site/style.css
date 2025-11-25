@@ -1,56 +1,60 @@
 #hero {
     background-color: white;
-    padding: 10rem 1rem;
+    /* Altura aumentada */
+    padding: 15rem 1rem; 
     border-radius: 30px;
     text-align: center;
     overflow: hidden;
     position: relative;
+}
 
-    h1 {
-        font-size: 6rem;
-        font-weight: 800;
-        z-index: 5;
-        position: relative;
-        color: white;
-    }
+#hero h1 {
+    /* Mantém o tamanho grande, pode usar 'rem' ou um 'vw' alto se preferir que ele escale um pouco */
+    font-size: 6rem; 
+    font-weight: 800;
+    z-index: 5;
+    position: relative;
+    color: white;
+}
 
-    video {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        width: 100%;
-        z-index: 2;
-    }
+#hero video {
+    /* Solução para tirar as bordas brancas e garantir que cubra */
+    width: 105%; 
+    height: 105%; 
+    object-fit: cover;
+    z-index: 2;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 20px;
 }
 
 #boas-vindas {
     color: white;
-
-    h2 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        font-size: 2rem;
-        line-height: 1.15;
-        margin-bottom: 1.5rem;
-    }
 }
 
+#boas-vindas h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#boas-vindas p {
+    font-size: 2rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
 
 main {
-    padding: 40px;  
+    padding: 2.5rem;  
     background: #3b3535f5;
 }
 
 section {
-    padding: 60px 0;
+    padding: 3.75rem 0;
     border-bottom: 1px solid #292626;
 }
-
 
 .video-background {
     position: fixed;
@@ -59,17 +63,11 @@ section {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    /* Preenche toda a tela sem bordas pretas */
     opacity: 0.15;
-    /* Controle da transparência (0.0 a 1.0) */
     z-index: -1;
-    /* Fica atrás de tudo */
     pointer-events: none;
-    /* Não interfere com os cliques */
 }
 
-
-/* CAMADA ESCURA EM TODO O SITE */
 .overlay-dark {
     position: fixed;
     top: 0;
@@ -77,139 +75,123 @@ section {
     width: 100dvw;
     height: 100dvh;
     background: rgba(0, 0, 0, 0.171);
-    /* 0.65 = intensidade da escuridão */
     z-index: 0;
-    /* fica ENTRE o vídeo e o conteúdo */
     pointer-events: none;
 }
-
 
 .simulador {
     display: flex;
     flex-direction: column;
-    font-size: 80px;
+    /* Retorna ao tamanho fixo em rem (ou mantém um vw alto, se preferir) */
+    font-size: 5rem; 
     color: #ffffff;
-
     overflow: hidden;
     padding-left: 0;
     justify-content: center;
     align-items: center;
-
 }
 
 .simulador1 {
     display: flex;
     flex-direction: column;
-    font-size: 60px;
+    /* Retorna ao tamanho fixo em rem */
+    font-size: 4rem; 
     color: #ffffff;
-
     overflow: hidden;
     padding-left: 0;
     justify-content: center;
     align-items: center;
-
 }
 
 .desc {
     display: flex;
     flex-direction: column;
-    font-size: 50px;
+    /* Retorna ao tamanho fixo em rem */
+    font-size: 3rem; 
     justify-content: flex-start;
     align-items: flex-start;
-
 }
 
-
-
-
-
+/* ---------------------------------- */
 
 /* ======== ESTILO XADREZ ======== */
 
 .grid-xadrez {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 5rem;
 }
 
 .xadrez {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 40px;
-    gap: 40px;
+    padding: 3.75rem 2.5rem; 
+    gap: 2.5rem; 
 }
 
-/* Alternância automática */
 .xadrez.invertido {
     flex-direction: row-reverse;
 }
 
-/* Áreas de imagem */
 .xadrez-img {
     width: 50%;
-    height: 350px;
+    height: 22rem; 
     background-size: cover;
     background-position: center;
     border-radius: 6px;
 }
 
-/* Áreas de texto */
 .xadrez-texto {
     width: 50%;
     color: white;
 }
 
 .xadrez-texto h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 2rem; 
+    margin-bottom: 0.9375rem; 
 }
 
 .xadrez-texto p {
-    font-size: 18px;
+    font-size: 1.125rem; 
     line-height: 1.6;
 }
 
 /* CAIXAS COLORIDAS */
 .bloco-verde .xadrez-img {
     background: #00000000;
-    /* verde */
     opacity: 0.9;
 }
 
 .bloco-vermelho .xadrez-img {
     background: #cc000000;
-    /* vermelho */
     opacity: 0.9;
 }
 
-/* ====== RESPONSIVO ====== */
-@media (max-width: 800px) {
+/* ---------------------------------- */
 
-    .xadrez,
-    .xadrez.invertido {
-        flex-direction: column;
-    }
-
-    .xadrez-img,
-    .xadrez-texto {
-        width: 100%;
-    }
-}
+/* ======== CAIXAS .pai e .filho (Quadrado Proporcional) ======== */
 
 .pai {
     display: flex;
     justify-content: space-around;
+    width: 100%;
+}
+
+.filho1, .filho2 {
+    /* Mantém as caixas lado a lado (45% de largura) */
+    width: 45%; 
+    height: 0; 
+    padding-top: 45%; 
 }
 
 .filho1 {
-
     background-color: #00cc6d;
-    width: 500px;
-    height: 500px;
 }
 
 .filho2 {
     background-color: #cc0000;
-    width: 500px;
-    height: 500px;
 }
+
+/* ---------------------------------- */
+
+/* A MEDIA QUERY FOI REMOVIDA */

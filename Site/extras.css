@@ -7,7 +7,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-
 html,
 body {
     min-height: 100dvh;
@@ -23,9 +22,7 @@ img {
 .topbar {
     width: 100%;
     background: #cc0000;
-    /* vermelho */
     padding: 15px 40px;
-    /* altura da faixa + espaçamento lateral */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -46,9 +43,8 @@ img {
     width: 100%;
 }
 
-.menu-list>li>a {
+.menu-list > li > a {
     color: #ffffff;
-    /* texto branco */
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
@@ -56,181 +52,59 @@ img {
     display: block;
 }
 
-.selects-animated1 {
+.selects-animated1,
+.selects-animated,
+.selects-animated2,
+.selects-animated3,
+.selects-animated4 {
     position: relative;
-    /* referência para o absolute */
 }
 
-
-.selects-animated {
-    position: relative;
-    /* referência para o absolute */
-}
-
+/* SEÇÕES COM IMAGEM + TEXTO */
 section.comum {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
+}
 
-    img {
-        border-radius: 1rem;
-    }
+section.comum img {
+    width: 100%;
+    border-radius: 1rem;
+    max-width: 650px; /* IMAGENS MAIORES */
 }
 
 .invert {
     order: -1;
 }
 
+/* TEXTOS NAS SEÇÕES */
 section .textos {
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
+    gap: 22px; /* espaçamento maior entre título e texto */
 }
 
-.links-header {
-    position: absolute;
-    top: 100%;
-    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
-
-    max-height: 0;
-    overflow: hidden;
-    background: #ffffff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+section .textos h2 {
+    font-size: 2.4rem; /* título maior */
+    margin-bottom: 8px; /* deixa mais espaçado */
 }
 
-.links-header li a {
-    display: block;
-    padding: 10px;
-    color: #000000;
-    text-decoration: none;
+section .textos p {
+    font-size: 1.35rem;
+    line-height: 1.8;
 }
 
-.links-header li a:hover {
-    background: #f1f1f1;
-}
-
-
-.links-usuario {
-    position: absolute;
-    top: 100%;
-    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
-
-    max-height: 0;
-    overflow: hidden;
-    background: #ffffff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.links-usuario li a {
-    display: block;
-    padding: 10px;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.links-usuario li a:hover {
-    background: #f1f1f1;
-}
-
-
-.links-usuario1 {
-    position: absolute;
-    top: 100%;
-    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
-
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.links-usuario1 li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-}
-
-.links-usuario1 li a:hover {
-    background: #f1f1f1;
-}
-
-.selects-animated3 {
-    position: relative;
-    /* referência para o absolute */
-}
-
-
-
-.links-usuario2 {
-    position: absolute;
-    top: 100%;
-    /* aparece logo abaixo do botão */
-    left: 0;
-    z-index: 999;
-
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    transition: max-height 0.3s ease;
-    padding-left: 0;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.links-usuario2 li a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-}
-
-.links-usuario2 li a:hover {
-    background: #f1f1f1;
-}
-
-
-.selects-animated4 {
-    position: relative;
-    /* referência para o absolute */
-}
-
-
+/* DROPDOWNS */
+.links-header,
+.links-usuario,
+.links-usuario1,
+.links-usuario2,
 .links-usuario3 {
     position: absolute;
     top: 100%;
-    /* aparece logo abaixo do botão */
     left: 0;
     z-index: 999;
-
     max-height: 0;
     overflow: hidden;
     background: #fff;
@@ -241,26 +115,30 @@ section .textos {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+.links-header li a,
+.links-usuario li a,
+.links-usuario1 li a,
+.links-usuario2 li a,
 .links-usuario3 li a {
     display: block;
     padding: 10px;
-    color: #333;
+    color: #000;
     text-decoration: none;
 }
 
+.links-header li a:hover,
+.links-usuario li a:hover,
+.links-usuario1 li a:hover,
+.links-usuario2 li a:hover,
 .links-usuario3 li a:hover {
     background: #f1f1f1;
-}
-
-.selects-animated2 {
-    position: relative;
-    /* referência para o absolute */
 }
 
 p {
     line-height: 24px;
 }
 
+/* ÁREA PRINCIPAL */
 main {
     padding: 4rem;
     max-width: 1200px;
@@ -271,43 +149,81 @@ main {
     gap: 4rem;
 }
 
+/* INTRODUÇÃO (ALINHADO À ESQUERDA) */
 .introducao {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-
-    h1 {
-        text-align: center;
-    }
+    gap: 28px;
 }
 
+.introducao h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.introducao p {
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+/* VIDEO */
 .encapsulado {
     width: 100%;
     overflow: hidden;
-    height: 300px;
+    height: 330px; /* leve aumento */
     position: relative;
     border-radius: 12px;
-
-    video {
-        position: absolute;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        right: 0;
-        width: 100%;
-    }
 }
 
+.encapsulado video {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* BLOCO DE VIDEO COM TEXTO */
 .video-sobre {
-    gap: 24px;
+    gap: 28px; /* maior espaçamento */
     display: flex;
     flex-direction: column;
 }
 
+/* IMAGEM CENTRAL (AGORA MAIOR) */
 .img-cab {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 70%;
+    width: 100%;
+    max-width: 650px; /* aumentei */
+    margin: 0 auto;
+}
+
+.img-cab img {
+    width: 100%;
+    border-radius: 12px;
+}
+/* CENTRALIZAR AS SEÇÕES DE TEXTO */
+.video-sobre {
+    max-width: 900px;
+    margin: 0 auto;       /* Centraliza todo o bloco */
+    text-align: left;     /* Mantém o texto alinhado, sem ficar colado na borda */
+    padding: 20px;
+}
+
+/* Melhor formatação das listas */
+.video-sobre p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Deixa títulos mais centralizados e destacados */
+.video-sobre h1, 
+.video-sobre h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ddab05;
 }
