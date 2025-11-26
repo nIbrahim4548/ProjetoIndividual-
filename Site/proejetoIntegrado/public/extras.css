@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+    min-height: 100dvh;
+    background-color: #3b3535f5;
+    color: white;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+.topbar {
+    width: 100%;
+    background: #cc0000;
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.menu-header {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu-list > li > a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: block;
+}
+
+.selects-animated1,
+.selects-animated,
+.selects-animated2,
+.selects-animated3,
+.selects-animated4 {
+    position: relative;
+}
+
+/* SEÇÕES COM IMAGEM */
+section.comum {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+section.comum img {
+    width: 100%;
+    border-radius: 1rem;
+    max-width: 650px; 
+    /* IMAGENS MAIORES */
+}
+
+.invert {
+    order: -1;
+}
+
+/* TEXTOS NAS SEÇÕES */
+section .textos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 22px; /* espaçamento maior entre título e texto */
+}
+
+section .textos h2 {
+    font-size: 2.4rem; /* título maior */
+    margin-bottom: 8px; /* deixa mais espaçado */
+}
+
+section .textos p {
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+
+.links-header,
+.links-usuario,
+.links-usuario1,
+.links-usuario2,
+.links-usuario3 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    transition: max-height 0.3s ease;
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.links-header li a,
+.links-usuario li a,
+.links-usuario1 li a,
+.links-usuario2 li a,
+.links-usuario3 li a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+.links-header li a:hover,
+.links-usuario li a:hover,
+.links-usuario1 li a:hover,
+.links-usuario2 li a:hover,
+.links-usuario3 li a:hover {
+    background: #f1f1f1;
+}
+
+p {
+    line-height: 24px;
+}
+
+/* ÁREA PRINCIPAL */
+main {
+    padding: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* INTRODUÇÃO  */
+.introducao {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.introducao h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.introducao p {
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+/* VIDEO */
+.encapsulado {
+    width: 100%;
+    overflow: hidden;
+    height: 330px; /* leve aumento */
+    position: relative;
+    border-radius: 12px;
+}
+
+.encapsulado video {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+
+.video-sobre {
+    gap: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.img-cab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 650px; /* aumentei */
+    margin: 0 auto;
+}
+
+.img-cab img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.video-sobre {
+    max-width: 900px;
+    margin: 0 auto;       /* Centraliza todo o bloco */
+    text-align: left;     /* Mantém o texto alinhado, sem ficar colado na borda */
+    padding: 20px;
+}
+
+/* Melhor formatação das listas */
+.video-sobre p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+/* Deixa títulos mais centralizados e destacados */
+.video-sobre h1, 
+.video-sobre h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ddab05;
+}

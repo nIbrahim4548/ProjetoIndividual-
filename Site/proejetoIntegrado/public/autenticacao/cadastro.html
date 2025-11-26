@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../conta.css">
+    <link rel="stylesheet" href="../extras.css">
+
+</head>
+
+<body>
+    <header class="topbar">
+        <nav class="menu-header">
+            <ul class="menu-list">
+                <li class="selects-animated">
+                    <a href="#" class="selects-links">Inicio</a>
+                    <ul class="links-usuario1">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li><a href="../autenticacao/login.html">Login</a></li>
+                    </ul>
+                </li>
+                <li class="selects-animated2">
+                    <a href="#" class="selects-links">Mecânica</a>
+                    <ul class="links-header">
+                        <li><a href="../mecanica/motores.html">Motores</a></li>
+                        <li><a href="../mecanica/injecao.html">Injeção</a></li>
+                        <li><a href="../mecanica/cambio.html">Câmbio</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated3">
+                    <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
+                    <ul class="links-usuario2">
+                        <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="selects-animated4">
+                    <a href="#" class="selects-links">Simulação</a>
+                    <ul class="links-usuario3">
+                        <li><a href="../simulacao/motores.html">Motores</a></li>
+                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="conta">
+            <div id="cadastro">
+                <div class="user-box">
+                    <p>
+                        <label>E-mail:</label> <input type="text" id="input_email">
+
+                        <br>
+                        <br>
+                    </p>
+                    <p>
+                </div>
+                <div class="user-box">
+
+                    <label>Nome:</label> <input type="text" id="input_nome">
+                    <br>
+                    <br>
+                    </p>
+                </div>
+                <p>
+                <div class="user-box">
+                    <label>Senha:</label> <input type="password" id="input_senha">
+                    <br>
+                    <br>
+                    </p>
+                </div>
+                <p>
+                <div class="user-box">
+                    <label>Confirme a Senha:</label>
+                    <input type="password" id="input_confirm">
+                    </p>
+                </div>
+                <span id="cardError"></span>
+                <button onclick="cadastrar()" class="button-cadastrar">Cadastrar</button>
+                <button onclick="login()" class="button-login">Login</button>
+
+            </div>
+        </div>
+    </main>
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>
+<script>
+    function login() {
+        window.location.href = "./login.html";
+    }
+
+
+    function cadastrar() {
+        var nameVar = input_nome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmVar = input_confirm.value;
+
+        if (
+            senhaVar != confirmVar
+        ) {
+            cardError.style.display = 'block'
+            cardError.innerHTML = "Senhas não batem"
+            return;
+        } else {
+            cardError.style.display = 'none'
+        }
+
+        if (
+            nameVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmVar == ""
+        ) {
+            cardError.style.display = 'block'
+            cardError.innerHTML = "Erro ao cadastrar usuário, preencha todos os campos"
+            return;
+        } else {
+            cardError.style.display = 'none'
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nameVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardError.style.display = "block";
+
+                    cardError.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "./login.html";
+                    }, "2000");
+
+                    nameVar = ""
+                    emailVar = ""
+                    senharVar = ""
+                    confirmVar = ""
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+</script>
+
+| | ||

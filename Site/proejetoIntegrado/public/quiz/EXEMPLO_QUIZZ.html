@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo - Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../extras.css">
+    <link rel="stylesheet" href="./style.css">
+
+    
+</head>
+<div id="logoquiz">
+<img src="../img/logo.png"alt="logo" width="35%" height="35%">
+</div>
+ <header class="topbar">
+        <nav class="menu-header">
+            <ul class="menu-list">
+                <li class="selects-animated">
+                    <a href="#" class="selects-links">Inicio</a>
+                    <ul class="links-usuario1">
+                        <li><a href="../index.html">Home</a></li>
+                        <li class="is_logged"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged"><a href="../autenticacao/login.html">Login</a></li>
+                    </ul>
+                </li>
+                <li class="selects-animated2">
+                    <a href="#" class="selects-links">Mecânica</a>
+                    <ul class="links-header">
+                        <li><a href="../mecanica/motores.html">Motores</a></li>
+                        <li><a href="../mecanica/injecao.html">Injeção</a></li>
+                        <li><a href="../mecanica/cambio.html">Câmbio</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated3">
+                    <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
+                    <ul class="links-usuario2">
+                        <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="selects-animated4">
+                    <a href="#" class="selects-links">Simulação</a>
+                    <ul class="links-usuario3">
+                        <li><a href="../simulacao/motores.html">Motores</a></li>
+                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
+                        <li class="is_logged_false"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz!</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated4">
+                    <button class="is_logged_false" onclick="sair()" class="selects-links">SAIR</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+<body onload="onloadEsconder()">
+
+    <!-- WRAPPER QUE CENTRALIZA TUDO -->
+    <div id="quiz-container">
+
+        <!-- Limita a largura e organiza o conteúdo -->
+        <div id="quiz-wrapper">
+
+            <div id="pontuacaoEJogo">
+
+                <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+
+                <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+                    <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
+                        <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
+                        <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
+                    </div>
+
+                    <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+                        <span id="pontuacaoFinal" class="width-fit-content">
+                            Pontuação Final: <span id="spanPontuacaoFinal">***</span>
+                        </span>
+                        <span id="msgFinal" class="width-fit-content">***</span>
+                    </div>
+                </div>
+
+                <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+                    <div id="infoQuestao" class="padding-8">
+                        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de
+                            <span id="qtdQuestoes"></span> questões.</span>
+                    </div>
+
+                    <div id="perguntaDaQuestaoAtual" class="padding-8">
+                        <span id="spanQuestaoExibida" class="text-bold"></span>
+                    </div>
+
+                    <div id="infoAlternativas" class="padding-8">
+                        <span><em>Escolha uma opção dentre as abaixo:</em></span>
+                    </div>
+
+                    <div id="opcoes" class="flex-colunar padding-8">
+                        <span>
+                            <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
+                            <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                        </span>
+
+                        <span>
+                            <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
+                            <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                        </span>
+
+                        <span>
+                            <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
+                            <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                        </span>
+
+                        <span>
+                            <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
+                            <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                        </span>
+                    </div>
+
+                    <div id="botoes" class="flex-colunar padding-8">
+                        <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
+                        <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
+                        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="../script.js"></script>
+</html>
+<script>
+    function sair() {
+        sessionStorage.clear()
+        window.location = "../../index.html";
+    }
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged").forEach(item => {
+            item.style.display = "none";
+        });
+    }
+
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged_false").forEach(item => {
+            item.style.display = "block";
+        });
+    }
+
+    const listaDeQuestoes = [
+
+    {
+        pergunta: "Qual é a função principal do turbo em um motor?",
+        alternativaA: "Reduzir o consumo de combustível",
+        alternativaB: "Aumentar a potência enviando mais ar para o motor",
+        alternativaC: "Diminuir o ruído do escape",
+        alternativaD: "Resfriar a admissão",
+        alternativaCorreta: "alternativaB"
+    },
+
+    {
+        pergunta: "O que significa a sigla ABS nos freios?",
+        alternativaA: "Anti-Brake System",
+        alternativaB: "Automatic Brake Security",
+        alternativaC: "Anti-lock Braking System",
+        alternativaD: "Advanced Braking System",
+        alternativaCorreta: "alternativaC"
+    },
+
+    {
+        pergunta: "Qual destes é um tipo de tração?",
+        alternativaA: "4x2",
+        alternativaB: "V6",
+        alternativaC: "ECU",
+        alternativaD: "KMs",
+        alternativaCorreta: "alternativaA"
+    },
+
+    {
+        pergunta: "O que é a ECU em um carro moderno?",
+        alternativaA: "Unidade de controle eletrônico do motor",
+        alternativaB: "Sistema de exaustão do carro",
+        alternativaC: "Tipo de combustível",
+        alternativaD: "Modelo de transmissão",
+        alternativaCorreta: "alternativaA"
+    },
+
+    {
+        pergunta: "Qual combustível proporciona maior octanagem?",
+        alternativaA: "Etanol",
+        alternativaB: "Gasolina comum",
+        alternativaC: "Diesel",
+        alternativaD: "Querosene",
+        alternativaCorreta: "alternativaA"
+    }
+
+]
+
+
+    // variáveis globais    
+    let numeroDaQuestaoAtual = 0
+    let pontuacaoFinal = 0
+    let tentativaIncorreta = 0
+    let certas = 0
+    let erradas = 0
+    let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+    function onloadEsconder() {
+        document.getElementById('pontuacao').style.display = "none"
+        document.getElementById('jogo').style.display = "none"
+    }
+
+    function iniciarQuiz() {
+        document.getElementById('pontuacao').style.display = "flex"
+        document.getElementById('jogo').style.display = "flex"
+        document.getElementById('btnIniciarQuiz').style.display = "none"
+
+        document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
+
+        preencherHTMLcomQuestaoAtual(0)
+
+        btnSubmeter.disabled = false
+        btnProx.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = true
+    }
+
+    function preencherHTMLcomQuestaoAtual(index) {
+        habilitarAlternativas(true)
+        const questaoAtual = listaDeQuestoes[index]
+        numeroDaQuestaoAtual = index
+        console.log("questaoAtual")
+        console.log(questaoAtual)
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    }
+
+    function submeter() {
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let hasChecked = false
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].checked) {
+                hasChecked = true
+                break
+            }
+        }
+
+        if (!hasChecked) {
+            alert("Não há alternativas escolhidas. Escolha uma opção.")
+        } else {
+            btnSubmeter.disabled = true
+            btnProx.disabled = false
+
+            habilitarAlternativas(false)
+
+            checarResposta()
+        }
+    }
+
+    function habilitarAlternativas(trueOrFalse) {
+        let opcaoEscolhida = trueOrFalse ? false : true
+
+        primeiraOpcao.disabled = opcaoEscolhida
+        segundaOpcao.disabled = opcaoEscolhida
+        terceiraOpcao.disabled = opcaoEscolhida
+        quartaOpcao.disabled = opcaoEscolhida
+
+    }
+
+    function avancar() {
+        btnProx.disabled = true
+        btnSubmeter.disabled = false
+
+        desmarcarRadioButtons()
+
+        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
+            alert("Atenção... a próxima é a ultima questão!")
+            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
+        } else {
+            finalizarJogo()
+        }
+        limparCoresBackgroundOpcoes()
+    }
+
+    function tentarNovamente() {
+        // atualiza a página
+        window.location.reload()
+    }
+
+    function checarResposta() {
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
+        const options = document.getElementsByName("option"); // recupera alternativas no html
+
+        let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
+                alternativaCorreta = option.labels[0].id
+            }
+        })
+
+        // verifica se resposta assinalada é correta
+        options.forEach((option) => {
+            if (option.checked === true && option.value === respostaQuestaoAtual) {
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                pontuacaoFinal++
+                certas++
+                document.getElementById("spanCertas").innerHTML = certas
+                numeroDaQuestaoAtual++
+            } else if (option.checked && option.value !== respostaQuestaoAtual) {
+                const wrongLabelId = option.labels[0].id
+
+                document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
+                document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+                tentativaIncorreta++
+                erradas++
+                document.getElementById("spanErradas").innerHTML = erradas
+                numeroDaQuestaoAtual++
+            }
+        })
+    }
+
+    function limparCoresBackgroundOpcoes() {
+        const options = document.getElementsByName("option");
+        options.forEach((option) => {
+            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
+            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
+        })
+    }
+
+    function desmarcarRadioButtons() {
+        const options = document.getElementsByName("option");
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false;
+        }
+    }
+
+    function finalizarJogo() {
+        let textoParaMensagemFinal = null
+        let classComCoresParaMensagemFinal = null
+        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+
+        if (porcentagemFinalDeAcertos <= 0.3) {
+            textoParaMensagemFinal = "Parece que você não estudou..."
+            classComCoresParaMensagemFinal = "text-danger-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
+            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            classComCoresParaMensagemFinal = "text-warning-with-bg"
+        }
+        else if (porcentagemFinalDeAcertos >= 0.9) {
+            textoParaMensagemFinal = "Uau, parabéns!"
+            classComCoresParaMensagemFinal = "text-success-with-bg"
+        }
+
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+
+
+        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+
+        document.getElementById('jogo').classList.add("text-new-gray") 
+
+        btnProx.disabled = true
+        btnSubmeter.disabled = true
+        // btnConcluir.disabled = true
+        btnTentarNovamente.disabled = false
+
+        const fkUsuario = sessionStorage.getItem("ID_USUARIO");
+        cadastrarResultadosQuiz(fkUsuario, pontuacaoFinal, quantidadeDeQuestoes - pontuacaoFinal, Math.round((porcentagemFinalDeAcertos)*100));
+    }
+
+    function cadastrarResultadosQuiz(fkUsuario, total_acertos, total_erros, porcentagem_acertos) {
+        fetch("/quiz/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                fkUsuario: fkUsuario,
+                total_acertos: total_acertos,
+                total_erros: total_erros,
+                porcentagem_acertos: porcentagem_acertos
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Resultados do quiz cadastrados com sucesso:", data);
+        })
+        .catch(error => {
+            console.error("Erro ao cadastrar resultados do quiz:", error);
+        });
+    }
+    
+</script>

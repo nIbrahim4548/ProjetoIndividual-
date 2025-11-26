@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../conta.css">
+    <link rel="stylesheet" href="../extras.css">
+
+</head>
+
+<body>
+    <header class="topbar">
+        <nav class="menu-header">
+            <ul class="menu-list">
+                <li class="selects-animated">
+                    <a href="#" class="selects-links">Inicio</a>
+                    <ul class="links-usuario1">
+                        <li><a href="../index.html">Home</a></li>
+                        <li class="is_logged"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged"><a href="../autenticacao/login.html">Login</a></li>
+                    </ul>
+                </li>
+                <li class="selects-animated2">
+                    <a href="#" class="selects-links">Mecânica</a>
+                    <ul class="links-header">
+                        <li><a href="../mecanica/motores.html">Motores</a></li>
+                        <li><a href="../mecanica/injecao.html">Injeção</a></li>
+                        <li><a href="../mecanica/cambio.html">Câmbio</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated3">
+                    <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
+                    <ul class="links-usuario2">
+                        <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="selects-animated4">
+                    <a href="#" class="selects-links">Simulação</a>
+                    <ul class="links-usuario3">
+                        <li><a href="../simulacao/motores.html">Motores</a></li>
+                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
+                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz!</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="conta">
+            <div id="cadastro">
+                <div class="user-box">
+                    <p>
+                        <label>E-mail:</label> <input type="text" id="input_email">
+                        <br>
+                        <br>
+                    </p>
+                    <p>
+                </div>
+                <div class="user-box">
+                    <label>Senha:</label> <input type="text" id="input_senha">
+                    <br>
+                    <br>
+                    </p>
+                </div>
+                <p>
+                    <span id="cardError"></span>
+                    <button onclick="cadastrar()" class="button-cadastrar">Cadastrar</button>
+                    <button onclick="login()" class="button-login">Login</button>
+
+            </div>
+        </div>
+    </main>
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>
+<script>
+
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged").forEach(item => {
+            item.style.display = "none";
+        });
+    }
+
+
+    function cadastrar() {
+        window.location.href = "./cadastro.html";
+    }
+
+    function login() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardError.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha os campos para fazer o login";
+            return false;
+        }
+        else {
+            cardError.style.display = "none"
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "../../quiz/EXEMPLO_QUIZZ.html";
+                    }, 1000);
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
