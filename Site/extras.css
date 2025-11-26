@@ -60,7 +60,7 @@ img {
     position: relative;
 }
 
-/* SEÇÕES COM IMAGEM + TEXTO */
+/* SEÇÕES COM IMAGEM */
 section.comum {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -70,7 +70,8 @@ section.comum {
 section.comum img {
     width: 100%;
     border-radius: 1rem;
-    max-width: 650px; /* IMAGENS MAIORES */
+    max-width: 650px; 
+    /* IMAGENS MAIORES */
 }
 
 .invert {
@@ -95,7 +96,7 @@ section .textos p {
     line-height: 1.8;
 }
 
-/* DROPDOWNS */
+
 .links-header,
 .links-usuario,
 .links-usuario1,
@@ -149,7 +150,7 @@ main {
     gap: 4rem;
 }
 
-/* INTRODUÇÃO (ALINHADO À ESQUERDA) */
+/* INTRODUÇÃO  */
 .introducao {
     display: flex;
     flex-direction: column;
@@ -184,14 +185,14 @@ main {
     width: 100%;
 }
 
-/* BLOCO DE VIDEO COM TEXTO */
+
 .video-sobre {
-    gap: 28px; /* maior espaçamento */
+    gap: 28px;
     display: flex;
     flex-direction: column;
 }
 
-/* IMAGEM CENTRAL (AGORA MAIOR) */
+
 .img-cab {
     display: flex;
     align-items: center;
@@ -206,7 +207,7 @@ main {
     width: 100%;
     border-radius: 12px;
 }
-/* CENTRALIZAR AS SEÇÕES DE TEXTO */
+
 .video-sobre {
     max-width: 900px;
     margin: 0 auto;       /* Centraliza todo o bloco */

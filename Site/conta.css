@@ -25,6 +25,7 @@
   border-radius: 6px;
   border: 1px solid rgb(255, 255, 255);
   background: transparent;
+  
   font-size: 15px;
   outline: none;
   margin-bottom: 20px;
@@ -63,42 +64,4 @@
 
 .button-login:hover {
   background-color: #444;
-}
-
-
-
-/* ===== Ajuste das imagens ===== */
-.img-cab img {
-    width: 70%;                /* antes provavelmente estava 50% ou 100% */
-    max-width: 450px;          /* impede imagens gigantes */
-    display: block;
-    margin: 20px auto;
-}
-
-/* ===== Títulos ===== */
-.video-sobre h1,
-.introducao h2 {
-    font-size: 2rem;           /* aumento moderado */
-    text-align: center;
-    margin-top: 40px;
-}
-
-.video-sobre h2 {
-    font-size: 1.6rem;
-    margin-top: 25px;
-}
-
-/* ===== Parágrafos ===== */
-.video-sobre p,
-.introducao p {
-    font-size: 1.15rem;        /* um pouco maior sem ficar exagerado */
-    line-height: 1.75rem;      /* deixa MUITO mais confortável de ler */
-    max-width: 900px;
-    margin: 10px auto;
-}
-
-/* ===== Sessões ===== */
-.video-sobre,
-.introducao {
-    padding: 20px;
 }

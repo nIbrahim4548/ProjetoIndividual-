@@ -9,7 +9,7 @@
 }
 
 #hero h1 {
-    /* Mantém o tamanho grande, pode usar 'rem' ou um 'vw' alto se preferir que ele escale um pouco */
+    /* Mantém o tamanho grande,*/
     font-size: 6rem; 
     font-weight: 800;
     z-index: 5;
@@ -112,9 +112,7 @@ section {
     align-items: flex-start;
 }
 
-/* ---------------------------------- */
 
-/* ======== ESTILO XADREZ ======== */
 
 .grid-xadrez {
     width: 100%;
@@ -156,7 +154,7 @@ section {
     line-height: 1.6;
 }
 
-/* CAIXAS COLORIDAS */
+
 .bloco-verde .xadrez-img {
     background: #00000000;
     opacity: 0.9;
@@ -167,9 +165,9 @@ section {
     opacity: 0.9;
 }
 
-/* ---------------------------------- */
 
-/* ======== CAIXAS .pai e .filho (Quadrado Proporcional) ======== */
+
+
 
 .pai {
     display: flex;
@@ -192,6 +190,4 @@ section {
     background-color: #cc0000;
 }
 
-/* ---------------------------------- */
 
-/* A MEDIA QUERY FOI REMOVIDA */
