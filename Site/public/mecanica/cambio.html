@@ -7,9 +7,12 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="../conta.css">
     <link rel="stylesheet" href="../extras.css">
-
+    <link rel="stylesheet" href="../quiz/style2.css">
+    
 </head>
-
+<div id="logoquiz">
+<img src="../img/logo.png"alt="logo" width="20%" height="20%">
+</div>
 <body>
     <header class="topbar">
         <nav class="menu-header">
@@ -42,8 +45,8 @@
                 <li class="selects-animated4">
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
-                        <li><a href="../simulacao/motores.html">Motores</a></li>
-                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
+                        <li><a href="../quiz/dashboard.html">Dashboard</a></li>
+                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
                 </li>
 
@@ -52,7 +55,9 @@
         </nav>
     </header>
 
-<section class="introducao">
+<section class="video-sobre">
+
+
     <h2>A Evolução dos Câmbios e o Papel da Transmissão no Desempenho</h2>
 
     <p>
@@ -252,3 +257,22 @@
 </body>
 
 </html>
+<script>
+        function sair() {
+        sessionStorage.clear()
+        window.location = "../../index.html";
+    }
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged").forEach(item => {
+            item.style.display = "none";
+        });
+    }
+
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged_false").forEach(item => {
+            item.style.display = "block";
+        });
+    }
+
+
+</script>

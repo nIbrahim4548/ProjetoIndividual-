@@ -8,7 +8,7 @@
     position: relative;
 }
 
-#hero h1 {
+#hero h3 {
     /* Mantém o tamanho grande,*/
     font-size: 6rem; 
     font-weight: 800;
@@ -29,6 +29,44 @@
     transform: translate(-50%, -50%); 
     border-radius: 20px;
 }
+/* HERO1 — Caixa de texto bonita */
+#hero1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+}
+
+.hero1-box {
+    background: rgb(255, 0, 0);
+    backdrop-filter: blur(8px);
+    padding: 3rem 2rem;
+    width: 85%;
+    max-width: 900px;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    opacity: 0.43;
+}
+
+/* Título */
+.hero1-box h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #111;
+}
+
+/* Parágrafos */
+.hero1-box p {
+    font-size: 1.45rem;
+    line-height: 2.2rem;
+    margin-bottom: 1.2rem;
+    color: #222;
+}
+
+
+
 
 #boas-vindas {
     color: white;
@@ -166,7 +204,10 @@ section {
 }
 
 
-
+#logoquiz img {
+    width: 80px;    /* tamanho pequeno */
+    height: auto;
+}
 
 
 .pai {
@@ -193,3 +234,7 @@ section {
 }
 
 
+#ONU img {
+    width: 20%;   /* diminui proporcionalmente */
+    height: auto;
+}

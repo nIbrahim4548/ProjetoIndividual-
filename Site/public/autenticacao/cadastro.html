@@ -17,7 +17,7 @@
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
-                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
                         <li><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
@@ -42,8 +42,8 @@
                 <li class="selects-animated4">
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
-                        <li><a href="../simulacao/motores.html">Motores</a></li>
-                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
+                        <li><a href="../quiz/dashboard.html">Dashboard</a></li>
+                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
                 </li>
 
@@ -97,6 +97,21 @@
 
 </html>
 <script>
+     function sair() {
+        sessionStorage.clear()
+        window.location = "../../index.html";
+    }
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged").forEach(item => {
+            item.style.display = "none";
+        });
+    }
+
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged_false").forEach(item => {
+            item.style.display = "block";
+        });
+    }
     function login() {
         window.location.href = "./login.html";
     }

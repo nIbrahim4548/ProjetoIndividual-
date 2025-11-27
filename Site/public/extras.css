@@ -154,7 +154,7 @@ main {
 .introducao {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 40px;
 }
 
 .introducao h1 {

@@ -7,22 +7,23 @@
     <title>Exemplo - Quiz</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../extras.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../quiz/style2.css">
+   
 
     
 </head>
 <div id="logoquiz">
-<img src="../img/logo.png"alt="logo" width="35%" height="35%">
+<img src="../img/logo.png"alt="logo" width="20%" height="20%">
 </div>
- <header class="topbar">
+    <header class="topbar">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
                         <li><a href="../index.html">Home</a></li>
-                        <li class="is_logged"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li class="is_logged"><a href="../autenticacao/login.html">Login</a></li>
+                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
                 </li>
                 <li class="selects-animated2">
@@ -45,15 +46,11 @@
                 <li class="selects-animated4">
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
-                        <li><a href="../simulacao/motores.html">Motores</a></li>
-                        <li><a href="../simulacao/descubraCarro.html">Descubra seu carro!</a></li>
-                        <li class="is_logged_false"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz!</a></li>
+                        <li><a href="../quiz/dashboard.html">Dashboard</a></li>
+                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
                 </li>
 
-                <li class="selects-animated4">
-                    <button class="is_logged_false" onclick="sair()" class="selects-links">SAIR</a>
-                </li>
 
             </ul>
         </nav>
@@ -215,7 +212,21 @@
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+        function sair() {
+        sessionStorage.clear()
+        window.location = "../../index.html";
+    }
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged").forEach(item => {
+            item.style.display = "none";
+        });
+    }
 
+    if (sessionStorage.getItem("ID_USUARIO") != null) {
+        document.querySelectorAll(".is_logged_false").forEach(item => {
+            item.style.display = "block";
+        });
+    }
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"

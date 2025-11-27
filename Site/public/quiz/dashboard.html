@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Quiz Automotivo</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./dash.css">
+    <link rel="stylesheet" href="../conta.css">
+    <link rel="stylesheet" href="../extras.css">
+
+</head>
+    <header class="topbar">
+        <nav class="menu-header">
+            <ul class="menu-list">
+                <li class="selects-animated">
+                    <a href="#" class="selects-links">Inicio</a>
+                    <ul class="links-usuario1">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li><a href="../autenticacao/login.html">Login</a></li>
+                    </ul>
+                </li>
+                <li class="selects-animated2">
+                    <a href="#" class="selects-links">Mecânica</a>
+                    <ul class="links-header">
+                        <li><a href="../mecanica/motores.html">Motores</a></li>
+                        <li><a href="../mecanica/injecao.html">Injeção</a></li>
+                        <li><a href="../mecanica/cambio.html">Câmbio</a></li>
+                    </ul>
+                </li>
+
+                <li class="selects-animated3">
+                    <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
+                    <ul class="links-usuario2">
+                        <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="selects-animated4">
+                    <a href="#" class="selects-links">Simulação</a>
+                    <ul class="links-usuario3">
+                        <li><a href="../quiz/dashboard.html">Dashboard</a></li>
+                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
+                    </ul>
+                </li>
+
+
+            </ul>
+        </nav>
+    </header>
+<body onload="carregarDashboard()">
+
+    <div class="conteudo">
+
+        <div class="kpis">
+            <div class="kpi">
+                <h3>Acertos</h3>
+                <span id="kpi_acertos">0</span>
+            </div>
+
+            <div class="kpi">
+                <h3>Erros</h3>
+                <span id="kpi_erros">0</span>
+            </div>
+
+            <div class="kpi">
+                <h3>Tentativas</h3>
+                <span id="kpi_tentativas">0</span>
+            </div>
+        </div>
+
+        <div class="graficocontainer">
+            <canvas id="graficoAcertos"></canvas>
+        </div>
+        <div id="div_qualificacao"></div>
+
+    </div>
+    <script src="../script.js"></script>
+
+    <script>
+        function sair() {
+            sessionStorage.clear()
+            window.location = "../../index.html";
+        }
+        if (sessionStorage.getItem("ID_USUARIO") != null) {
+            document.querySelectorAll(".is_logged").forEach(item => {
+                item.style.display = "none";
+            });
+        }
+
+        if (sessionStorage.getItem("ID_USUARIO") != null) {
+            document.querySelectorAll(".is_logged_false").forEach(item => {
+                item.style.display = "block";
+            });
+        }
+        function carregarDashboard() {
+            // valores de exemplo (serão preenchidos pelo backend futuramente)
+            let totalAcertos = Number(sessionStorage.ACERTOS_TOTAL);
+            let totalErros = Number(sessionStorage.ERROS_TOTAL);
+            let totalTentativas = Number(sessionStorage.JOGADAS_TOTAL);
+
+            document.getElementById("kpi_acertos").innerHTML = totalAcertos;
+            document.getElementById("kpi_erros").innerHTML = totalErros;
+            document.getElementById("kpi_tentativas").innerHTML = totalTentativas;
+
+            const ctx = document.getElementById("graficoAcertos");
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Acertos"],
+                    datasets: [{
+                        label: "Desempenho (%)",
+                        data: [totalAcertos * 100 / (totalAcertos + totalErros)],
+                        borderWidth: 3,
+                        backgroundColor: "#FF1E1E",
+                        borderColor: "#000",
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+        if (totalAcertos >= 7) {
+            document.getElementById("div_qualificacao").innerHTML = "<h2>Parabéns! Você está qualificado como Expert em Quiz Automotivo!</h2>";
+        } else if (totalAcertos >= 4) {
+            document.getElementById("div_qualificacao").innerHTML = "<h2>Bom trabalho! Você está qualificado como Intermediário em Quiz Automotivo!</h2>";
+        } else {
+            document.getElementById("div_qualificacao").innerHTML = "<h2>Continue praticando! Você está qualificado como Iniciante em Quiz Automotivo!</h2>";
+        }
+    </script>
+
+</body>
+
+</html>
