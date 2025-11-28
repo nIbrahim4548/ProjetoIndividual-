@@ -46,15 +46,13 @@
     border-radius: 25px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
-    opacity: 0.43;
 }
 
-/* Título */
 .hero1-box h1 {
     font-size: 3.2rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    color: #111;
+    color: #ffffff;
 }
 
 /* Parágrafos */
@@ -62,7 +60,7 @@
     font-size: 1.45rem;
     line-height: 2.2rem;
     margin-bottom: 1.2rem;
-    color: #222;
+    color: #ffffff;
 }
 
 
@@ -86,7 +84,7 @@
 
 main {
     padding: 2.5rem;  
-    background: #3b3535f5;
+    background: #111;
 }
 
 section {

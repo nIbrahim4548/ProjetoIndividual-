@@ -10,27 +10,27 @@
 html,
 body {
     min-height: 100dvh;
-    background-color: #3b3535f5;
+    background-color: #111;
     color: white;
 }
 
-img {
-    display: block;
-    width: 100%;
-}
-
 .topbar {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background: #cc0000;
     padding: 15px 40px;
     position: fixed;
     top: 0;
     z-index: 100;
+    align-content: center;
+    align-items: center;
 }
-
-.menu-header {
-    max-width: 1200px;
-    margin: auto;
+.main-logo {
+    max-width: 180px;
+    width: 100%; 
+    height: auto; 
+    display: block; 
 }
 
 .menu-list {
@@ -83,7 +83,8 @@ section .textos {
     color: white;
     display: flex;
     flex-direction: column;
-    gap: 22px; /* espaçamento maior entre título e texto */
+    gap: 22px;
+    align-items: center;
 }
 
 section .textos h2 {
@@ -95,6 +96,21 @@ section .textos p {
     font-size: 1.35rem;
     line-height: 1.8;
 }
+
+ONU section .textos h2 {
+    color: #007f4f; /* cor verde para o título */
+}
+
+.ONU {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 32px;
+    flex-direction: column;
+    margin-top: 40px;
+    align-items: center;
+}
+
+
 
 
 .links-header,

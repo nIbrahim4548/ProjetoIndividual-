@@ -12,6 +12,7 @@
 
 <body>
     <header class="topbar">
+            <img class="main-logo" src="../img/LOGON.png" alt="logo" width="20%" height="20%">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
@@ -129,6 +130,13 @@ if (sessionStorage.getItem("ID_USUARIO") != null) {
         var senhaVar = input_senha.value;
         var confirmVar = input_confirm.value;
 
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
+            cardError.style.display = 'block'
+            cardError.innerHTML = "Insira um e-mail válido"
+            return; 
+        } else {
+            cardError.style.display = 'none'
+        }       
         if (
             senhaVar != confirmVar
         ) {
