@@ -50,7 +50,14 @@ body {
   max-width: 420px; /* controla largura do quiz — ajuste conforme quiser */
   margin: 0 auto;
 }
-
+#pontuacao.border-primary {
+    border: none !important;
+}
+#pontuacao {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 /* Ajustes nas caixas internas para não forçar o layout */
 #quiz-container #jogo,
 #quiz-container #pontuacao {
