@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="../extras.css">
 
 </head>
-    <header class="topbar">
+   <header class="topbar">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li><a href="../autenticacao/login.html">Login</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
                 </li>
                 <li class="selects-animated2">
@@ -41,29 +41,34 @@
 
 
                 <li class="selects-animated4">
-                    <a href="#" class="selects-links">Simulação</a>
+                    <a href="#" class="selects-links">Quiz</a>
                     <ul class="links-usuario3">
                         <li><a href="../quiz/dashboard.html">Dashboard</a></li>
-                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
+                        <li class="is_logged"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
+                </li>
+
+                <li class="selects-animated4 is_logged">
+                    <button onclick="sair()" class="selects-links">Sair</a>
                 </li>
 
 
             </ul>
         </nav>
     </header>
-<body onload="carregarDashboard()">
+
+<body onload="carregarDashboard(); carregarGraficoHistorico();">
 
     <div class="conteudo">
 
         <div class="kpis">
             <div class="kpi">
-                <h3>Acertos</h3>
+                <h3>Media de Acertos</h3>
                 <span id="kpi_acertos">0</span>
             </div>
 
             <div class="kpi">
-                <h3>Erros</h3>
+                <h3>Media de Erros</h3>
                 <span id="kpi_erros">0</span>
             </div>
 
@@ -80,66 +85,81 @@
 
     </div>
     <script src="../script.js"></script>
-
     <script>
-        function sair() {
-            sessionStorage.clear()
-            window.location = "../../index.html";
-        }
-        if (sessionStorage.getItem("ID_USUARIO") != null) {
-            document.querySelectorAll(".is_logged").forEach(item => {
-                item.style.display = "none";
-            });
-        }
+        let fkUsuario = sessionStorage.getItem("ID_USUARIO");
+        async function carregarDashboard() {
+            try {
+                const response = await fetch(`http://localhost:3333/quiz/getDadosDashboard?fkUsuario=${fkUsuario}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
 
-        if (sessionStorage.getItem("ID_USUARIO") != null) {
-            document.querySelectorAll(".is_logged_false").forEach(item => {
-                item.style.display = "block";
-            });
-        }
-        function carregarDashboard() {
-            // valores de exemplo (serão preenchidos pelo backend futuramente)
-            let totalAcertos = Number(sessionStorage.ACERTOS_TOTAL);
-            let totalErros = Number(sessionStorage.ERROS_TOTAL);
-            let totalTentativas = Number(sessionStorage.JOGADAS_TOTAL);
+                const data = await response.json();
 
-            document.getElementById("kpi_acertos").innerHTML = totalAcertos;
-            document.getElementById("kpi_erros").innerHTML = totalErros;
-            document.getElementById("kpi_tentativas").innerHTML = totalTentativas;
+                console.log("Dados do dashboard recebidos:", data);
+
+                // Pegando valores da API
+                let totalAcertos = Number(data[0].media_acertos) || 0;
+                let totalErros = Number(data[0].media_erros) || 0;
+                let totalTentativas = Number(data[0].total_quizzes) || 0;
+
+                // Preenche os KPIs
+                document.getElementById("kpi_acertos").innerHTML = totalAcertos;
+                document.getElementById("kpi_erros").innerHTML = totalErros;
+                document.getElementById("kpi_tentativas").innerHTML = totalTentativas;
+
+
+
+            } catch (error) {
+                console.error("Erro ao carregar dashboard:", error);
+            }
+        }
+        async function carregarGraficoHistorico() {
+            const response = await fetch(`http://localhost:3333/quiz/getHistoricoDashboard?fkUsuario=${fkUsuario}`);
+            const data = await response.json();
+            console.log("Dados do gráfico recebidos:", data);
+            montarGraficoHistorico(data);
+        }
+        function montarGraficoHistorico(data) {
+
+            let datas = data.map(item => item.data_hora);
+            let acertos = data.map(item => Number(item.total_acertos));
+            let erros = data.map(item => Number(item.total_erros));
 
             const ctx = document.getElementById("graficoAcertos");
 
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ["Acertos"],
-                    datasets: [{
-                        label: "Desempenho (%)",
-                        data: [totalAcertos * 100 / (totalAcertos + totalErros)],
-                        borderWidth: 3,
-                        backgroundColor: "#FF1E1E",
-                        borderColor: "#000",
-                    }]
+                    labels: datas,
+                    datasets: [
+                        {
+                            label: "Acertos",
+                            data: acertos,
+                            backgroundColor: "#1E90FF",
+                            borderColor: "#000",
+                            borderWidth: 2
+                        },
+                        {
+                            label: "Erros",
+                            data: erros,
+                            backgroundColor: "#FF1E1E",
+                            borderColor: "#000",
+                            borderWidth: 2
+                        }
+                    ]
                 },
                 options: {
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
-                        }
+                        y: { beginAtZero: true }
                     }
                 }
             });
         }
-        if (totalAcertos >= 7) {
-            document.getElementById("div_qualificacao").innerHTML = "<h2>Parabéns! Você está qualificado como Expert em Quiz Automotivo!</h2>";
-        } else if (totalAcertos >= 4) {
-            document.getElementById("div_qualificacao").innerHTML = "<h2>Bom trabalho! Você está qualificado como Intermediário em Quiz Automotivo!</h2>";
-        } else {
-            document.getElementById("div_qualificacao").innerHTML = "<h2>Continue praticando! Você está qualificado como Iniciante em Quiz Automotivo!</h2>";
-        }
-    </script>
 
+    </script>
 </body>
 
 </html>

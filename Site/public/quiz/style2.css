@@ -180,8 +180,3 @@ button:disabled {
 #btnIniciarQuiz:hover {
     background: #019c41;
 }
-
-
-.is_logged_false {
-    display: none;
-}

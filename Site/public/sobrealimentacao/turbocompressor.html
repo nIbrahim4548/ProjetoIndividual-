@@ -11,15 +11,15 @@
 </head>
 
 <body>
-    <header class="topbar">
+  <header class="topbar">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li><a href="../autenticacao/login.html">Login</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
                 </li>
                 <li class="selects-animated2">
@@ -39,12 +39,16 @@
                 </li>
 
 
-                <li class="selects-animated4">
+                <li class="selects-animated4 is_logged">
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
                         <li><a href="../quiz/dashboard.html">Dashboard</a></li>
                         <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
+                </li>
+
+                <li class="selects-animated4 is_logged">
+                    <button onclick="sair()" class="selects-links">Sair</a>
                 </li>
 
 

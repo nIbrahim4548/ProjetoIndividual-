@@ -6,6 +6,7 @@ function cadastrar(req, res) {
     var total_acertos = req.body.total_acertos;
     var total_erros = req.body.total_erros;
     var porcentagem_acertos = req.body.porcentagem_acertos;
+    var data_quiz = req.body.data_quiz;
 
     //validacoes
     if (fkUsuario == undefined) {
@@ -19,7 +20,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo quizModel.js
-        quizModel.cadastrar(fkUsuario, total_acertos, total_erros, porcentagem_acertos)
+        quizModel.cadastrar(fkUsuario, total_acertos, total_erros, porcentagem_acertos, data_quiz)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -37,6 +38,37 @@ function cadastrar(req, res) {
     }
 }
 
+function getDadosDashboard(req, res) {
+    var fkUsuario = req.query.fkUsuario;
+    quizModel.getDadosDashboard(fkUsuario)
+        .then(function (resultado) {
+            res.json(resultado);
+        }
+        ).catch(function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao buscar os dados do dashboard! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function getHistoricoDashboard(req, res) {
+    var fkUsuario = req.query.fkUsuario;
+
+    quizModel.getHistoricoDashboard(fkUsuario)
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log("Erro ao buscar histórico:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    getDadosDashboard,
+    getHistoricoDashboard
 }

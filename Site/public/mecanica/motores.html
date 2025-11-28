@@ -11,18 +11,19 @@
 
 </head>
 <div id="logoquiz">
-<img src="../img/logo.png"alt="logo" width="20%" height="20%">
+    <img src="../img/logo.png" alt="logo" width="20%" height="20%">
 </div>
+
 <body>
-    <header class="topbar">
+   <header class="topbar">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li><a href="../autenticacao/login.html">Login</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
                 </li>
                 <li class="selects-animated2">
@@ -46,8 +47,12 @@
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
                         <li><a href="../quiz/dashboard.html">Dashboard</a></li>
-                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
+                        <li class="is_logged"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
+                </li>
+
+                <li class="selects-animated4 is_logged">
+                    <button onclick="sair()" class="selects-links">Sair</a>
                 </li>
 
 
@@ -57,43 +62,57 @@
     <main>
         <section class="introducao">
 
-<h2>A Evolução dos Motores e o Surgimento da Preparação</h2>
+            <h2>A Evolução dos Motores e o Surgimento da Preparação</h2>
 
-<p>
-Desde o final do século XIX, os motores a combustão vêm evoluindo continuamente para entregar mais eficiência, potência e confiabilidade. 
-Os primeiros motores eram simples, de baixa rotação e totalmente focados em funcionalidade básica. 
-Com o avanço da engenharia e da indústria automotiva, surgiram novas tecnologias, como cabeçotes mais eficientes, ignição elétrica, carburadores aprimorados e, mais tarde, injeção eletrônica.
-</p>
+            <p>
+                Desde o final do século XIX, os motores a combustão vêm evoluindo continuamente para entregar mais
+                eficiência, potência e confiabilidade.
+                Os primeiros motores eram simples, de baixa rotação e totalmente focados em funcionalidade básica.
+                Com o avanço da engenharia e da indústria automotiva, surgiram novas tecnologias, como cabeçotes mais
+                eficientes, ignição elétrica, carburadores aprimorados e, mais tarde, injeção eletrônica.
+            </p>
 
-<p>
-A partir da década de 1930, a busca por maior desempenho começou a ganhar destaque, especialmente em competições como as corridas de arrancada nos Estados Unidos e as provas europeias de turismo. 
-Foi nesse período que surgiram as primeiras grandes modificações de motores: retrabalho do cabeçote, comandos mais agressivos, carburadores maiores e sistemas de escapamento de maior vazão.
-</p>
+            <p>
+                A partir da década de 1930, a busca por maior desempenho começou a ganhar destaque, especialmente em
+                competições como as corridas de arrancada nos Estados Unidos e as provas europeias de turismo.
+                Foi nesse período que surgiram as primeiras grandes modificações de motores: retrabalho do cabeçote,
+                comandos mais agressivos, carburadores maiores e sistemas de escapamento de maior vazão.
+            </p>
 
-<p>
-O auge inicial da preparação ocorreu entre as décadas de 1950 e 1970, quando motores V8 americanos, motores europeus de alta rotação e os primeiros turbos automotivos começaram a aparecer em competições. 
-A popularização da performance se intensificou com o surgimento da cultura “hot rod”, que trouxe ao público comum o conceito de modificar carros de rua para obter mais potência.
-</p>
+            <p>
+                O auge inicial da preparação ocorreu entre as décadas de 1950 e 1970, quando motores V8 americanos,
+                motores europeus de alta rotação e os primeiros turbos automotivos começaram a aparecer em competições.
+                A popularização da performance se intensificou com o surgimento da cultura “hot rod”, que trouxe ao
+                público comum o conceito de modificar carros de rua para obter mais potência.
+            </p>
 
-<p>
-Nos anos 1980 e 1990, a chegada da injeção eletrônica e dos sistemas de gerenciamento digital permitiu uma revolução. 
-Pela primeira vez, era possível ajustar o motor com precisão por meio de mapas de ignição, combustível e controle de turbo. 
-Essa época marcou o início da preparação moderna e abriu caminho para motores cada vez mais eficientes e potentes.
-</p>
+            <p>
+                Nos anos 1980 e 1990, a chegada da injeção eletrônica e dos sistemas de gerenciamento digital permitiu
+                uma revolução.
+                Pela primeira vez, era possível ajustar o motor com precisão por meio de mapas de ignição, combustível e
+                controle de turbo.
+                Essa época marcou o início da preparação moderna e abriu caminho para motores cada vez mais eficientes e
+                potentes.
+            </p>
 
-<p>
-Hoje, o mundo da preparação combina engenharia avançada com tecnologia de ponta. 
-Motores turbo modernos, comandos variáveis, materiais forjados, injeção direta, ECU programável e sistemas híbridos permitem extração de potência com segurança e confiabilidade antes impensáveis. 
-O acesso a ferramentas de diagnóstico, softwares de mapeamento e peças de alta performance transformou completamente o cenário, tornando a preparação mais precisa, segura e acessível.
-</p>
+            <p>
+                Hoje, o mundo da preparação combina engenharia avançada com tecnologia de ponta.
+                Motores turbo modernos, comandos variáveis, materiais forjados, injeção direta, ECU programável e
+                sistemas híbridos permitem extração de potência com segurança e confiabilidade antes impensáveis.
+                O acesso a ferramentas de diagnóstico, softwares de mapeamento e peças de alta performance transformou
+                completamente o cenário, tornando a preparação mais precisa, segura e acessível.
+            </p>
 
-<p>
-Da simplicidade dos primeiros motores ao nível tecnológico atual, a evolução da engenharia automotiva acompanha diretamente a paixão por desempenho. 
-E é justamente essa busca por mais potência, eficiência e inovação que continua impulsionando o mundo da preparação até hoje.
-</p>
-<p>
-Com isso, vamos entender como as principais partes de um motor funcionam e qual o impacto delas na manutenção e performance de um veículo
-</p>
+            <p>
+                Da simplicidade dos primeiros motores ao nível tecnológico atual, a evolução da engenharia automotiva
+                acompanha diretamente a paixão por desempenho.
+                E é justamente essa busca por mais potência, eficiência e inovação que continua impulsionando o mundo da
+                preparação até hoje.
+            </p>
+            <p>
+                Com isso, vamos entender como as principais partes de um motor funcionam e qual o impacto delas na
+                manutenção e performance de um veículo
+            </p>
 
 
         </section>
@@ -254,8 +273,8 @@ Com isso, vamos entender como as principais partes de um motor funcionam e qual 
             <br>
             <h1>Bloco do Motor</h1>
             <img src="../img/bloco motor.png" alt="bloco">
-</section>
- <section class="video-sobre">
+        </section>
+        <section class="video-sobre">
 
             <p>
                 O bloco do motor é a estrutura principal do conjunto propulsor.
@@ -378,7 +397,7 @@ Com isso, vamos entender como as principais partes de um motor funcionam e qual 
                 e garantir um funcionamento confiável por muitos quilômetros.
             </p>
 
-        
+
         </section>
         <section class="video-sobre">
             <h1>Pistões</h1>
@@ -506,149 +525,177 @@ Com isso, vamos entender como as principais partes de um motor funcionam e qual 
                     <img src="../img/virabrequim.png" alt="virabrequim">
                 </div>
 
-<p>
-O virabrequim é um dos componentes mais importantes do motor. 
-Ele transforma o movimento linear dos pistões em movimento rotativo, permitindo que a energia gerada na combustão seja transferida para a transmissão e, por fim, para as rodas.
-É responsável por manter o funcionamento suave e equilibrado do motor, suportando enormes cargas e rotações.
-</p>
+                <p>
+                    O virabrequim é um dos componentes mais importantes do motor.
+                    Ele transforma o movimento linear dos pistões em movimento rotativo, permitindo que a energia gerada
+                    na combustão seja transferida para a transmissão e, por fim, para as rodas.
+                    É responsável por manter o funcionamento suave e equilibrado do motor, suportando enormes cargas e
+                    rotações.
+                </p>
 
-<p><strong>Função do Virabrequim:</strong></p>
+                <p><strong>Função do Virabrequim:</strong></p>
 
-<p>
-• Converter o movimento dos pistões (vai e vem) em rotação contínua.<br>
-• Manter o sincronismo entre pistões e bielas.<br>
-• Distribuir a força gerada na combustão para todo o trem de força.<br>
-• Trabalhar junto às bronzinas, garantindo lubrificação e reduzindo atrito.
-</p>
+                <p>
+                    • Converter o movimento dos pistões (vai e vem) em rotação contínua.<br>
+                    • Manter o sincronismo entre pistões e bielas.<br>
+                    • Distribuir a força gerada na combustão para todo o trem de força.<br>
+                    • Trabalhar junto às bronzinas, garantindo lubrificação e reduzindo atrito.
+                </p>
 
-<h2>Construção e Materiais</h2>
+                <h2>Construção e Materiais</h2>
 
-<p>O virabrequim pode ser produzido de diferentes formas, cada uma atendendo a uma necessidade específica:</p>
+                <p>O virabrequim pode ser produzido de diferentes formas, cada uma atendendo a uma necessidade
+                    específica:</p>
 
-<p><strong>• Virabrequim Fundido:</strong><br>
-Fabricado em ferro fundido nodular. É o mais comum em carros de passeio.
-<br><strong>Vantagens:</strong> Custo mais baixo, bom desempenho para uso urbano e rotações moderadas.<br>
-<strong>Desvantagens:</strong> Menor resistência em motores muito potentes ou que operam em altas rotações.
-</p>
+                <p><strong>• Virabrequim Fundido:</strong><br>
+                    Fabricado em ferro fundido nodular. É o mais comum em carros de passeio.
+                    <br><strong>Vantagens:</strong> Custo mais baixo, bom desempenho para uso urbano e rotações
+                    moderadas.<br>
+                    <strong>Desvantagens:</strong> Menor resistência em motores muito potentes ou que operam em altas
+                    rotações.
+                </p>
 
-<p><strong>• Virabrequim Forjado:</strong><br>
-Produzido a partir de aço forjado sob alta pressão, o que alinha as moléculas do material e aumenta muito sua resistência.
-<br><strong>Vantagens:</strong> Suporta grandes cargas, altas rotações e preparação pesada (turbo, supercharger, nitro, alta taxa de compressão).<br>
-<strong>Desvantagens:</strong> Mais caro, porém essencial em projetos de alta performance.
-</p>
+                <p><strong>• Virabrequim Forjado:</strong><br>
+                    Produzido a partir de aço forjado sob alta pressão, o que alinha as moléculas do material e aumenta
+                    muito sua resistência.
+                    <br><strong>Vantagens:</strong> Suporta grandes cargas, altas rotações e preparação pesada (turbo,
+                    supercharger, nitro, alta taxa de compressão).<br>
+                    <strong>Desvantagens:</strong> Mais caro, porém essencial em projetos de alta performance.
+                </p>
 
-<p><strong>• Virabrequim Usinado Billet:</strong><br>
-Cortado de um bloco sólido de aço de altíssima qualidade, é utilizado em aplicações de competição extrema.
-<br><strong>Vantagens:</strong> Resistência máxima, precisão absoluta, aceito em motores de mais de 1000 cv.<br>
-<strong>Desvantagens:</strong> Custo muito elevado; uso mais restrito a competições profissionais.
-</p>
+                <p><strong>• Virabrequim Usinado Billet:</strong><br>
+                    Cortado de um bloco sólido de aço de altíssima qualidade, é utilizado em aplicações de competição
+                    extrema.
+                    <br><strong>Vantagens:</strong> Resistência máxima, precisão absoluta, aceito em motores de mais de
+                    1000 cv.<br>
+                    <strong>Desvantagens:</strong> Custo muito elevado; uso mais restrito a competições profissionais.
+                </p>
 
-<h2>Preparações Envolvendo o Virabrequim</h2>
+                <h2>Preparações Envolvendo o Virabrequim</h2>
 
-<p>
-Na preparação automotiva, o virabrequim é uma peça crítica, já que precisa suportar cargas e rotações acima do padrão de fábrica.
-</p>
+                <p>
+                    Na preparação automotiva, o virabrequim é uma peça crítica, já que precisa suportar cargas e
+                    rotações acima do padrão de fábrica.
+                </p>
 
-<p><strong>Principais melhorias para performance:</strong></p>
+                <p><strong>Principais melhorias para performance:</strong></p>
 
-<p>
-• <strong>Virabrequim forjado:</strong> Essencial em motores preparados com pressão de turbo elevada, nitro ou rotações acima de 7.000–8.000 rpm.<br>
-• <strong>Alívio de peso e balanceamento:</strong> Retirada precisa de material para reduzir massa e permitir subidas de rotação mais rápidas.<br>
-• <strong>Nitratação:</strong> Tratamento térmico que aumenta a dureza superficial, reduzindo desgaste e aumentando resistência.<br>
-• <strong>Pinos e moentes reforçados:</strong> Suaves, polidos e com raios maiores para melhorar a durabilidade das bronzinas.<br>
-• <strong>Uso de bronzinas de alta performance:</strong> Tolerâncias mais precisas, materiais mais resistentes e melhor adaptação a óleo quente e alta pressão.
-</p>
+                <p>
+                    • <strong>Virabrequim forjado:</strong> Essencial em motores preparados com pressão de turbo
+                    elevada, nitro ou rotações acima de 7.000–8.000 rpm.<br>
+                    • <strong>Alívio de peso e balanceamento:</strong> Retirada precisa de material para reduzir massa e
+                    permitir subidas de rotação mais rápidas.<br>
+                    • <strong>Nitratação:</strong> Tratamento térmico que aumenta a dureza superficial, reduzindo
+                    desgaste e aumentando resistência.<br>
+                    • <strong>Pinos e moentes reforçados:</strong> Suaves, polidos e com raios maiores para melhorar a
+                    durabilidade das bronzinas.<br>
+                    • <strong>Uso de bronzinas de alta performance:</strong> Tolerâncias mais precisas, materiais mais
+                    resistentes e melhor adaptação a óleo quente e alta pressão.
+                </p>
 
-<h2>Funcionamento e Importância do Balanceamento</h2>
+                <h2>Funcionamento e Importância do Balanceamento</h2>
 
-<p>
-O virabrequim exige um balanceamento perfeito para evitar vibrações, desgaste prematuro e perda de potência.
-Um virabrequim mal balanceado pode causar danos às bielas, pistões, bronzinas e até rachaduras no bloco.
-</p>
+                <p>
+                    O virabrequim exige um balanceamento perfeito para evitar vibrações, desgaste prematuro e perda de
+                    potência.
+                    Um virabrequim mal balanceado pode causar danos às bielas, pistões, bronzinas e até rachaduras no
+                    bloco.
+                </p>
 
-<p><strong>• Balanceamento dinâmico:</strong> Feito com contrapesos e remoção mínima de material, garante funcionamento suave mesmo em rotações muito elevadas.</p>
+                <p><strong>• Balanceamento dinâmico:</strong> Feito com contrapesos e remoção mínima de material,
+                    garante funcionamento suave mesmo em rotações muito elevadas.</p>
 
-<h2>Dicas de Manutenção do Virabrequim</h2>
+                <h2>Dicas de Manutenção do Virabrequim</h2>
 
-<p>
-Apesar de robusto, o virabrequim requer cuidados específicos para manter o motor funcionando de forma confiável.
-</p>
+                <p>
+                    Apesar de robusto, o virabrequim requer cuidados específicos para manter o motor funcionando de
+                    forma confiável.
+                </p>
 
-<p>
-<strong>• Troca de óleo em dia:</strong> O óleo lubrifica os mancais e bronzinas. A falta de óleo ou óleo velho pode provocar danos irreversíveis ao virabrequim.<br>
-<strong>• Evitar falta de pressão de óleo:</strong> Luz de óleo acesa ou pressão baixa destrói bronzinas em segundos.<br>
-<strong>• Prestar atenção a ruídos metálicos:</strong> Batidas profundas ("tec-tec" grave) podem indicar desgaste nas bielas ou bronzinas.<br>
-<strong>• Não exigir o motor frio:</strong> Óleo frio não lubrifica adequadamente; aguarde alguns minutos antes de altas rotações.<br>
-<strong>• Usar óleo de boa qualidade:</strong> Motores preparados exigem óleos sintéticos com maior resistência térmica e filmes lubrificantes mais fortes.<br>
-<strong>• Verificar folgas regularmente (motores preparados):</strong> Principalmente em motores turbo, aspirados fortes ou de competição.
-</p>
+                <p>
+                    <strong>• Troca de óleo em dia:</strong> O óleo lubrifica os mancais e bronzinas. A falta de óleo ou
+                    óleo velho pode provocar danos irreversíveis ao virabrequim.<br>
+                    <strong>• Evitar falta de pressão de óleo:</strong> Luz de óleo acesa ou pressão baixa destrói
+                    bronzinas em segundos.<br>
+                    <strong>• Prestar atenção a ruídos metálicos:</strong> Batidas profundas ("tec-tec" grave) podem
+                    indicar desgaste nas bielas ou bronzinas.<br>
+                    <strong>• Não exigir o motor frio:</strong> Óleo frio não lubrifica adequadamente; aguarde alguns
+                    minutos antes de altas rotações.<br>
+                    <strong>• Usar óleo de boa qualidade:</strong> Motores preparados exigem óleos sintéticos com maior
+                    resistência térmica e filmes lubrificantes mais fortes.<br>
+                    <strong>• Verificar folgas regularmente (motores preparados):</strong> Principalmente em motores
+                    turbo, aspirados fortes ou de competição.
+                </p>
 
-<h2>Sintomas de Problemas no Virabrequim</h2>
+                <h2>Sintomas de Problemas no Virabrequim</h2>
 
-<p>
-• Ruído metálico grave vindo da parte baixa do motor.<br>
-• Queda de pressão de óleo repentina.<br>
-• Vibrações anormais em determinadas rotações.<br>
-• Limalhas metálicas no óleo (indicando desgaste de bronzinas).<br>
-• Dificuldade do motor em manter funcionamento suave.
-</p>
+                <p>
+                    • Ruído metálico grave vindo da parte baixa do motor.<br>
+                    • Queda de pressão de óleo repentina.<br>
+                    • Vibrações anormais em determinadas rotações.<br>
+                    • Limalhas metálicas no óleo (indicando desgaste de bronzinas).<br>
+                    • Dificuldade do motor em manter funcionamento suave.
+                </p>
 
-<p>
-O virabrequim é, portanto, uma peça fundamental tanto em motores originais quanto em projetos de alta performance. 
-Manter esse componente em perfeito estado e escolher o material adequado para o nível de preparação é essencial para garantir confiabilidade e desempenho.
-</p>
-
-
-        <section class="video-sobre">
-            <h1>Arrefecimento</h1>
-
-            <div class="img-cab">
-                <img src="../img/arrefecimento.png" alt="arrefecimento">
-            </div>
+                <p>
+                    O virabrequim é, portanto, uma peça fundamental tanto em motores originais quanto em projetos de
+                    alta performance.
+                    Manter esse componente em perfeito estado e escolher o material adequado para o nível de preparação
+                    é essencial para garantir confiabilidade e desempenho.
+                </p>
 
 
-                <h2>Sistema de Arrefecimento</h2>
+                <section class="video-sobre">
+                    <h1>Arrefecimento</h1>
 
-<p>
-O sistema de arrefecimento mantém o motor na temperatura ideal de funcionamento. 
-Ele evita superaquecimento e garante que o motor opere de forma eficiente e durável.
-</p>
+                    <div class="img-cab">
+                        <img src="../img/arrefecimento.png" alt="arrefecimento">
+                    </div>
 
-<p><strong>Componentes Principais:</strong></p>
 
-<p>
-• Radiador.<br>
-• Bomba d’água.<br>
-• Mangueiras e dutos.<br>
-• Reservatório de expansão.<br>
-• Termostato.<br>
-• Ventoinha.<br>
-• Sensor de temperatura.
-</p>
+                    <h2>Sistema de Arrefecimento</h2>
 
-<h2>Problemas Comuns</h2>
+                    <p>
+                        O sistema de arrefecimento mantém o motor na temperatura ideal de funcionamento.
+                        Ele evita superaquecimento e garante que o motor opere de forma eficiente e durável.
+                    </p>
 
-<p>
-• Vazamentos.<br>
-• Mistura inadequada de aditivo.<br>
-• Radiador obstruído.<br>
-• Termostato travado.<br>
-• Bomba d’água desgastada.
-</p>
+                    <p><strong>Componentes Principais:</strong></p>
 
-<p><strong>Dicas de Manutenção:</strong></p>
+                    <p>
+                        • Radiador.<br>
+                        • Bomba d’água.<br>
+                        • Mangueiras e dutos.<br>
+                        • Reservatório de expansão.<br>
+                        • Termostato.<br>
+                        • Ventoinha.<br>
+                        • Sensor de temperatura.
+                    </p>
 
-<p>
-• Nunca use só água! E sempre optando por água desmineralizada e aditivo na proporção correta.<br>
-• Troque o fluido de arrefecimento nos intervalos recomendados.<br>
-• Verifique mangueiras ressecadas ou frouxas.<br>
-• Certifique-se do funcionamento correto da ventoinha.<br>
-• Nunca abra o reservatório com o motor quente.
-</p>
+                    <h2>Problemas Comuns</h2>
 
-<p>
-Em preparações: radiador maior, ventoinhas mais fortes e dutos de alta vazão são essenciais.
-</p>
+                    <p>
+                        • Vazamentos.<br>
+                        • Mistura inadequada de aditivo.<br>
+                        • Radiador obstruído.<br>
+                        • Termostato travado.<br>
+                        • Bomba d’água desgastada.
+                    </p>
+
+                    <p><strong>Dicas de Manutenção:</strong></p>
+
+                    <p>
+                        • Nunca use só água! E sempre optando por água desmineralizada e aditivo na proporção
+                        correta.<br>
+                        • Troque o fluido de arrefecimento nos intervalos recomendados.<br>
+                        • Verifique mangueiras ressecadas ou frouxas.<br>
+                        • Certifique-se do funcionamento correto da ventoinha.<br>
+                        • Nunca abra o reservatório com o motor quente.
+                    </p>
+
+                    <p>
+                        Em preparações: radiador maior, ventoinhas mais fortes e dutos de alta vazão são essenciais.
+                    </p>
 
     </main>
 
@@ -657,21 +704,3 @@ Em preparações: radiador maior, ventoinhas mais fortes e dutos de alta vazão 
 </body>
 
 </html>
-<script>
-        function sair() {
-        sessionStorage.clear()
-        window.location = "../../index.html";
-    }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
-
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
-
-</script>

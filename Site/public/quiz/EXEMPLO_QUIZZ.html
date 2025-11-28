@@ -8,53 +8,58 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../extras.css">
     <link rel="stylesheet" href="../quiz/style2.css">
-   
 
-    
+
+
 </head>
 <div id="logoquiz">
-<img src="../img/logo.png"alt="logo" width="20%" height="20%">
+    <img src="../img/logo.png" alt="logo" width="20%" height="20%">
 </div>
-    <header class="topbar">
-        <nav class="menu-header">
-            <ul class="menu-list">
-                <li class="selects-animated">
-                    <a href="#" class="selects-links">Inicio</a>
-                    <ul class="links-usuario1">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li><a href="../autenticacao/login.html">Login</a></li>
-                    </ul>
-                </li>
-                <li class="selects-animated2">
-                    <a href="#" class="selects-links">Mecânica</a>
-                    <ul class="links-header">
-                        <li><a href="../mecanica/motores.html">Motores</a></li>
-                        <li><a href="../mecanica/injecao.html">Injeção</a></li>
-                        <li><a href="../mecanica/cambio.html">Câmbio</a></li>
-                    </ul>
-                </li>
+<header class="topbar">
+    <nav class="menu-header">
+        <ul class="menu-list">
+            <li class="selects-animated">
+                <a href="#" class="selects-links">Inicio</a>
+                <ul class="links-usuario1">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="is_logged_false"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                    <li class="is_logged_false"><a href="../autenticacao/login.html">Login</a></li>
+                </ul>
+            </li>
+            <li class="selects-animated2">
+                <a href="#" class="selects-links">Mecânica</a>
+                <ul class="links-header">
+                    <li><a href="../mecanica/motores.html">Motores</a></li>
+                    <li><a href="../mecanica/injecao.html">Injeção</a></li>
+                    <li><a href="../mecanica/cambio.html">Câmbio</a></li>
+                </ul>
+            </li>
 
-                <li class="selects-animated3">
-                    <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
-                    <ul class="links-usuario2">
-                        <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="selects-animated4">
-                    <a href="#" class="selects-links">Simulação</a>
-                    <ul class="links-usuario3">
-                        <li><a href="../quiz/dashboard.html">Dashboard</a></li>
-                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
-                    </ul>
-                </li>
+            <li class="selects-animated3">
+                <a href="#" class="selects-links">Sistemas de sobrealimentação</a>
+                <ul class="links-usuario2">
+                    <li><a href="../sobrealimentacao/turbocompressor.html">Turbocompressores:</a></li>
+                </ul>
+            </li>
 
 
-            </ul>
-        </nav>
-    </header>
+            <li class="selects-animated4">
+                <a href="#" class="selects-links">Quiz</a>
+                <ul class="links-usuario3">
+                    <li><a href="../quiz/dashboard.html">Dashboard</a></li>
+                    <li class="is_logged"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
+                </ul>
+            </li>
+
+            <li class="selects-animated4 is_logged">
+                <a href="#" onclick="sair()" class="selects-links">Sair</a>
+            </li>
+
+
+
+        </ul>
+    </nav>
+</header>
 
 
 <body onload="onloadEsconder()">
@@ -136,72 +141,58 @@
 </body>
 
 <script src="../script.js"></script>
+
 </html>
 <script>
-    function sair() {
-        sessionStorage.clear()
-        window.location = "../../index.html";
-    }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
-
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
 
     const listaDeQuestoes = [
 
-    {
-        pergunta: "Qual é a função principal do turbo em um motor?",
-        alternativaA: "Reduzir o consumo de combustível",
-        alternativaB: "Aumentar a potência enviando mais ar para o motor",
-        alternativaC: "Diminuir o ruído do escape",
-        alternativaD: "Resfriar a admissão",
-        alternativaCorreta: "alternativaB"
-    },
+        {
+            pergunta: "Qual é a função principal do turbo em um motor?",
+            alternativaA: "Reduzir o consumo de combustível",
+            alternativaB: "Aumentar a potência enviando mais ar para o motor",
+            alternativaC: "Diminuir o ruído do escape",
+            alternativaD: "Resfriar a admissão",
+            alternativaCorreta: "alternativaB"
+        },
 
-    {
-        pergunta: "O que significa a sigla ABS nos freios?",
-        alternativaA: "Anti-Brake System",
-        alternativaB: "Automatic Brake Security",
-        alternativaC: "Anti-lock Braking System",
-        alternativaD: "Advanced Braking System",
-        alternativaCorreta: "alternativaC"
-    },
+        {
+            pergunta: "O que significa a sigla ABS nos freios?",
+            alternativaA: "Anti-Brake System",
+            alternativaB: "Automatic Brake Security",
+            alternativaC: "Anti-lock Braking System",
+            alternativaD: "Advanced Braking System",
+            alternativaCorreta: "alternativaC"
+        },
 
-    {
-        pergunta: "Qual destes é um tipo de tração?",
-        alternativaA: "4x2",
-        alternativaB: "V6",
-        alternativaC: "ECU",
-        alternativaD: "KMs",
-        alternativaCorreta: "alternativaA"
-    },
+        {
+            pergunta: "Qual destes é um tipo de tração?",
+            alternativaA: "4x2",
+            alternativaB: "V6",
+            alternativaC: "ECU",
+            alternativaD: "KMs",
+            alternativaCorreta: "alternativaA"
+        },
 
-    {
-        pergunta: "O que é a ECU em um carro moderno?",
-        alternativaA: "Unidade de controle eletrônico do motor",
-        alternativaB: "Sistema de exaustão do carro",
-        alternativaC: "Tipo de combustível",
-        alternativaD: "Modelo de transmissão",
-        alternativaCorreta: "alternativaA"
-    },
+        {
+            pergunta: "O que é a ECU em um carro moderno?",
+            alternativaA: "Unidade de controle eletrônico do motor",
+            alternativaB: "Sistema de exaustão do carro",
+            alternativaC: "Tipo de combustível",
+            alternativaD: "Modelo de transmissão",
+            alternativaCorreta: "alternativaA"
+        },
 
-    {
-        pergunta: "Qual combustível proporciona maior octanagem?",
-        alternativaA: "Etanol",
-        alternativaB: "Gasolina comum",
-        alternativaC: "Diesel",
-        alternativaD: "Querosene",
-        alternativaCorreta: "alternativaA"
-    }
+        {
+            pergunta: "Qual combustível proporciona maior octanagem?",
+            alternativaA: "Etanol",
+            alternativaB: "Gasolina comum",
+            alternativaC: "Diesel",
+            alternativaD: "Querosene",
+            alternativaCorreta: "alternativaA"
+        }
 
-]
+    ]
 
 
     // variáveis globais    
@@ -212,21 +203,7 @@
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
-        function sair() {
-        sessionStorage.clear()
-        window.location = "../../index.html";
-    }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
 
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
         document.getElementById('jogo').style.display = "none"
@@ -385,14 +362,14 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
@@ -400,11 +377,29 @@
         btnTentarNovamente.disabled = false
 
         const fkUsuario = sessionStorage.getItem("ID_USUARIO");
-        cadastrarResultadosQuiz(fkUsuario, pontuacaoFinal, quantidadeDeQuestoes - pontuacaoFinal, Math.round((porcentagemFinalDeAcertos)*100));
+        cadastrarResultadosQuiz(fkUsuario, pontuacaoFinal, quantidadeDeQuestoes - pontuacaoFinal, Math.round((porcentagemFinalDeAcertos) * 100));
     }
 
+    function dataBrasilMySQL() {
+        const date = new Date();
+
+        const dataBrasil = new Date(
+            date.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" })
+        );
+
+        const ano = dataBrasil.getFullYear();
+        const mes = String(dataBrasil.getMonth() + 1).padStart(2, "0");
+        const dia = String(dataBrasil.getDate()).padStart(2, "0");
+        const hora = String(dataBrasil.getHours()).padStart(2, "0");
+        const min = String(dataBrasil.getMinutes()).padStart(2, "0");
+        const seg = String(dataBrasil.getSeconds()).padStart(2, "0");
+
+        return `${ano}-${mes}-${dia} ${hora}:${min}:${seg}`;
+    }
+
+    const data_quiz_origin = dataBrasilMySQL();
     function cadastrarResultadosQuiz(fkUsuario, total_acertos, total_erros, porcentagem_acertos) {
-        fetch("/quiz/cadastrar", {
+        fetch("http://localhost:3333/quiz/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -413,16 +408,18 @@
                 fkUsuario: fkUsuario,
                 total_acertos: total_acertos,
                 total_erros: total_erros,
-                porcentagem_acertos: porcentagem_acertos
+                porcentagem_acertos: porcentagem_acertos,
+                data_quiz: data_quiz_origin
             })
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Resultados do quiz cadastrados com sucesso:", data);
-        })
-        .catch(error => {
-            console.error("Erro ao cadastrar resultados do quiz:", error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log("Resultados do quiz cadastrados com sucesso:", data);
+                window.location = "./dashboard.html";
+            })
+            .catch(error => {
+                console.error("Erro ao cadastrar resultados do quiz:", error);
+            });
     }
-    
+
 </script>

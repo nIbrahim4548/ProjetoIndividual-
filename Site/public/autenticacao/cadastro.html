@@ -89,6 +89,7 @@
 
             </div>
         </div>
+        <div id="mensagem_erro"></div>
     </main>
     <script src="../script.js"></script>
 
@@ -101,17 +102,22 @@
         sessionStorage.clear()
         window.location = "../../index.html";
     }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
+if (sessionStorage.getItem("ID_USUARIO") != null) {
+    document.querySelectorAll(".is_logged").forEach(item => {
+        item.style.display = "block";
+    });
+    document.querySelectorAll(".is_logged_false").forEach(item => {
+        item.style.display = "none";
+    });
 
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
+}else {
+    document.querySelectorAll(".is_logged").forEach(item => {
+        item.style.display = "none";
+    });
+    document.querySelectorAll(".is_logged_false").forEach(item => {
+        item.style.display = "block";
+    });
+}
     function login() {
         window.location.href = "./login.html";
     }
@@ -146,7 +152,7 @@
             cardError.style.display = 'none'
         }
 
-        fetch("/usuarios/cadastrar", {
+        fetch("http://localhost:3333/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

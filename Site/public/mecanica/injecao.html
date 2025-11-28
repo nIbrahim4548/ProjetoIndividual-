@@ -14,15 +14,15 @@
 <img src="../img/logo.png"alt="logo" width="20%" height="20%">
 </div>
 <body>
-    <header class="topbar">
+   <header class="topbar">
         <nav class="menu-header">
             <ul class="menu-list">
                 <li class="selects-animated">
                     <a href="#" class="selects-links">Inicio</a>
                     <ul class="links-usuario1">
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="../autenticacao/cadastro.html">Cadastro</a></li>
-                        <li><a href="../autenticacao/login.html">Login</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/cadastro.html">Cadastro</a></li>
+                        <li class="is_logged_false"><a href="../autenticacao/login.html">Login</a></li>
                     </ul>
                 </li>
                 <li class="selects-animated2">
@@ -46,15 +46,18 @@
                     <a href="#" class="selects-links">Simulação</a>
                     <ul class="links-usuario3">
                         <li><a href="../quiz/dashboard.html">Dashboard</a></li>
-                        <li><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
+                        <li class="is_logged"><a href="../quiz/EXEMPLO_QUIZZ.html">Quiz</a></li>
                     </ul>
+                </li>
+
+                <li class="selects-animated4 is_logged">
+                    <button onclick="sair()" class="selects-links">Sair</a>
                 </li>
 
 
             </ul>
         </nav>
     </header>
-
 <section class="video-sobre">
     <h1>Injeção Eletrônica – Funcionamento, Evolução e Preparação Avançada</h1>
 
@@ -483,24 +486,3 @@
 </body>
 
 </html>
-<script>
-        function sair() {
-        sessionStorage.clear()
-        window.location = "../../index.html";
-    }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
-
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
-
-
-
-
-</script>

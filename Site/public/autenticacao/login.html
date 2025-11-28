@@ -75,35 +75,15 @@
 
             </div>
         </div>
+        <div id="mensagem_erro"></div>
     </main>
-    <script src="../script.js"></script>
+    
 
-
+<script src="../script.js"></script>
 </body>
 
 </html>
 <script>
-            function sair() {
-        sessionStorage.clear()
-        window.location = "../../index.html";
-    }
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
-
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged_false").forEach(item => {
-            item.style.display = "block";
-        });
-    }
-
-    if (sessionStorage.getItem("ID_USUARIO") != null) {
-        document.querySelectorAll(".is_logged").forEach(item => {
-            item.style.display = "none";
-        });
-    }
 
 
     function cadastrar() {
@@ -127,7 +107,7 @@
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
+       fetch("http://localhost:3333/usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -150,7 +130,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "../../quiz/EXEMPLO_QUIZZ.html";
+                        window.location = "../quiz/dashboard.html";
                     }, 1000);
 
                 });
